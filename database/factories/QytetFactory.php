@@ -22,8 +22,8 @@ class QytetFactory extends Factory
     public function definition()
     {
         return [
-            'qytet_id' => $this->faker->uuid,
-            'shtet_id' => $this->faker->uuid,
+            'qytet_id' => $this->faker->numberBetween(0, 140980676),
+            'shtet_id' => $this->faker->numberBetween(0, 140980676),
             'emer' => $this->faker->name
         ];
     }

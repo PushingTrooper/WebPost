@@ -22,7 +22,7 @@ class MagazineFactory extends Factory
     public function definition()
     {
         return [
-            'magazine_id' => $this->faker->uuid,
+            'magazine_id' => $this->faker->numberBetween(0, 140980676),
             'emer' => $this->faker->name,
             'latitude' => $this->faker->latitude,
             'longitude' => $this->faker->longitude

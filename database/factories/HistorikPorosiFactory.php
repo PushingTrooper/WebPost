@@ -22,10 +22,10 @@ class HistorikPorosiFactory extends Factory
     public function definition()
     {
         return [
-            'status_porosi_id' => $this->faker->uuid,
-            'status_id' => $this->faker->uuid,
-            'magazin_id' => $this->faker->uuid,
-            'perdorues_id' => $this->faker->uuid,
+            'status_porosi_id' => $this->faker->numberBetween(0, 140980676),
+            'status_id' => $this->faker->numberBetween(0, 140980676),
+            'magazine_id' => $this->faker->numberBetween(0, 140980676),
+            'perdorues_id' => $this->faker->numberBetween(0, 140980676),
             'data_krijimit' => $this->faker->dateTime
         ];
     }

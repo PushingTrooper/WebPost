@@ -12,6 +12,7 @@ use App\Models\Qytet;
 use App\Models\Roli;
 use App\Models\Shtet;
 use App\Models\Status;
+use Database\Factories\HistorikPorosiFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -24,7 +25,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        HistorikPorosi::factory(10)->create();
+        HistorikPorosiFactory::times(10)->create();
+        //HistorikPorosi::factory(10)->create();
         Magazine::factory(10)->create();
         Marres::factory(10)->create();
         Pagesa::factory(10)->create();

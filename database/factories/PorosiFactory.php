@@ -22,11 +22,11 @@ class PorosiFactory extends Factory
     public function definition()
     {
         return [
-            'porosi_id' => $this->faker->uuid,
-            'status_porosi_id' => $this->faker->uuid,
-            'pagese_id' => $this->faker->uuid,
-            'marres_id' => $this->faker->uuid,
-            'gjurmim_id' => $this->faker->uuid,
+            'porosi_id' => $this->faker->numberBetween(0, 140980676),
+            'status_porosi_id' => $this->faker->numberBetween(0, 140980676),
+            'pagese_id' => $this->faker->numberBetween(0, 140980676),
+            'marres_id' => $this->faker->numberBetween(0, 140980676),
+            'gjurmim_id' => $this->faker->numberBetween(0, 140980676),
             'tipi' => 'paketë',
             'tipi_dergeses' => 'normal',
             'koment' => ''

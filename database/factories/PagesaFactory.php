@@ -22,7 +22,7 @@ class PagesaFactory extends Factory
     public function definition()
     {
         return [
-            'pagese_id' => $this->faker->uuid,
+            'pagese_id' => $this->faker->numberBetween(0, 140980676),
             'shuma' => $this->faker->numberBetween(0, 700),
             'kryer' => 0,
             'nga_derguesi' => 1,

@@ -22,7 +22,7 @@ class StatusFactory extends Factory
     public function definition()
     {
         return [
-            'status_id' => $this->faker->uuid,
+            'status_id' => $this->faker->numberBetween(0, 140980676),
             'status' => $this->faker->name
         ];
     }

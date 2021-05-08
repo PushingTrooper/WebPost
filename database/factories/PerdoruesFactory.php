@@ -22,10 +22,10 @@ class PerdoruesFactory extends Factory
     public function definition()
     {
         return [
-            'perdorues_id' => $this->faker->uuid,
-            'magazine_id' => $this->faker->uuid,
-            'rol_id' => $this->faker->uuid,
-            'qytet_id' => $this->faker->uuid,
+            'perdorues_id' => $this->faker->numberBetween(0, 140980676),
+            'magazine_id' => $this->faker->numberBetween(0, 140980676),
+            'rol_id' => $this->faker->numberBetween(0, 140980676),
+            'qytet_id' => $this->faker->numberBetween(0, 140980676),
             'email' => $this->faker->email,
             'emri' => $this->faker->name,
             'mbiemri' => $this->faker->name,

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Roli;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,9 +14,11 @@ class CreateRoli extends Migration
      */
     public function up()
     {
-        Schema::create('Roli', function (Blueprint $table) {
+        Schema::create('rolis', function (Blueprint $table) {
             $table->id('rol_id');
             $table->string('emer');
+            $table->dateTime('updated_at');
+            $table->dateTime('created_at');
         });
     }
 

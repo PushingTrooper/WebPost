@@ -22,8 +22,8 @@ class MarresFactory extends Factory
     public function definition()
     {
         return [
-            'marres_id' => $this->faker->uuid,
-            'qytet_id' => $this->faker->uuid,
+            'marres_id' => $this->faker->numberBetween(0, 140980676),
+            'qytet_id' => $this->faker->numberBetween(0, 140980676),
             'emer' => $this->faker->name,
             'mbiemer' => $this->faker->name,
             'adrese' => $this->faker->sentence(5)

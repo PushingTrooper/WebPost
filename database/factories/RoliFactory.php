@@ -22,7 +22,7 @@ class RoliFactory extends Factory
     public function definition()
     {
         return [
-            'rol_id' => $this->faker->uuid,
+            'rol_id' => $this->faker->numberBetween(0, 140980676),
             'emer' => $this->faker->name
         ];
     }

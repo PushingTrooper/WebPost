@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Perdorues;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,7 +14,7 @@ class CreatePerdorues extends Migration
      */
     public function up()
     {
-        Schema::create('Perdorues', function (Blueprint $table) {
+        Schema::create('perdorues', function (Blueprint $table) {
             $table->id('perdorues_id');
             $table->integer('magazine_id');
             $table->integer('rol_id');
@@ -27,6 +28,8 @@ class CreatePerdorues extends Migration
             $table->integer('latitude');
             $table->integer('longitude');
             $table->boolean('kerkuar_ndryshim_fjalekalimi');
+            $table->dateTime('updated_at');
+            $table->dateTime('created_at');
         });
     }
 
