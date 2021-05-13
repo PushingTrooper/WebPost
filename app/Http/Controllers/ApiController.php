@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HistorikPorosi;
 use App\Models\Marres;
+use App\Models\Pagesa;
 use App\Models\Perdorues;
 use App\Models\Porosi;
 use App\Models\Status;
@@ -82,6 +83,59 @@ class ApiController extends Controller
                 return response()->json(['success' => 'failed', 'message' => 'Permission denied'], 403);
             }
 
+        } else {
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 401);
+        }
+    }
+
+    public function getPackageDetails(Request $request) {
+        if($request->has('tracking_code')) {
+            $package = Porosi::where('gjurmim_id', $request['tracking_code'])
+                ->first(['porosi_id', 'pagese_id', 'marres_id', 'tipi', 'tipi_dergeses', 'koment']);
+
+            if($package!=null) {
+                $historyOrder = HistorikPorosi::where('porosi_id', $package['porosi_id'])
+                    ->get(['magazine_id', 'perdorues_id', 'status_id']);
+
+                $history = array();
+
+                foreach ($historyOrder as $time) {
+                    $user = Perdorues::where('perdorues_id', $time['perdorues_id'])
+                        ->first(['perdorues_id', 'emri', 'mbiemri', 'rol_id']);
+                    $history[] = (object) [
+                        'warehouse_id' => $time['magazine_id'],
+                        'user' =>
+                            ['id' => $user['perdorues_id'], 'role' => $user['rol_id'],
+                                'name' => $user['emri'], 'surname' => $user['mbiemri']],
+                        'status_id' => $time['status_id']
+                    ];
+                }
+
+                $paymentQuery = Pagesa::where('pagese_id', $package['pagese_id'])->first(['shuma', 'kryer']);
+                $payment = (object) [
+                    'value' => $paymentQuery['shuma'],
+                    'is_completed' => $paymentQuery['kyer']
+                ];
+
+                $receiverQuery = Marres::where('marres_id', $package['marres_id'])
+                    ->first(['emer', 'mbiemer', 'adrese']);
+                $receiver = (object) [
+                    'name' => $receiverQuery['emer'],
+                    'surnmae' => $receiverQuery['mbiemer'],
+                    'address' => $receiverQuery['adrese'],
+                ];
+
+                return response()->json([
+                    'history' => $history,
+                    'payment' => $payment,
+                    'receiver' => $receiver,
+                    'type' => $package['tipi'],
+                    'package_priority' => $package['tipi_dergeses'],
+                    'comment' => $package['koment']
+                ], 200);
+            } else {
+                return response()->json(['success' => 'failed', 'message' => 'Did not find the requested package'], 404);
+            }
         } else {
             return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 401);
         }

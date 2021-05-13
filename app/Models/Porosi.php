@@ -4,13 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder;
 
+/**
+ * @method static Builder where($column, $operator = null, $value = null, $boolean = 'and')
+ * @method static Builder create(Porosi $attributes = [])
+ * @method public Builder update(array $values)
+ */
 class Porosi extends Model
 {
     use HasFactory;
 
     public $porosi_id;
-    public $status_porosi_id;
     public $pagese_id;
     public $marres_id;
     public $gjurmim_id;
@@ -20,7 +25,6 @@ class Porosi extends Model
 
     protected $fillable = [
         'porosi_id',
-        'status_porosi_id',
         'pagese_id',
         'marres_id',
         'gjurmim_id',
