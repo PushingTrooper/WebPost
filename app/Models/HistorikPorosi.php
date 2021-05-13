@@ -16,6 +16,7 @@ class HistorikPorosi extends Model
     use HasFactory;
 
     public $status_porosi_id;
+    public $porosi_id;
     public $status_id;
     public $magazine_id;
     public $perdorues_id;
@@ -23,6 +24,7 @@ class HistorikPorosi extends Model
 
     protected $fillable = [
         'status_porosi_id',
+        'porosi_id',
         'status_id',
         'magazine_id',
         'perdorues_id',

@@ -40,8 +40,8 @@ class ApiController extends Controller
         if($request->has('user_id')) {
             $user = Perdorues::where('perdorues_id', $request['user_id'])->first();
             if($user['rol_id'] != 4) {
-                $packages = Porosi::all('gjurmim_id',
-                    'status_porosi_id',
+                $packages = Porosi::all( 'porosi_id',
+                    'gjurmim_id',
                     'pagese_id',
                     'marres_id',
                     'tipi_dergeses');
@@ -49,9 +49,13 @@ class ApiController extends Controller
                 $responses = array();
 
                 foreach ($packages as $package) {
-                    error_log("started historik");
-                    $last_status = HistorikPorosi::where('status_porosi_id', $package['status_porosi_id'])
-                        ->first(['status_id', 'data_krijimit']);
+                    $last_status = HistorikPorosi::where('porosi_id', $package['porosi_id'])
+                        ->latest('data_krijimit')->first(['status_id', 'data_krijimit']);
+
+                    $first_status = HistorikPorosi::where('porosi_id', $package['porosi_id'])
+                        ->first(['perdorues_id']);
+                    $sender = Perdorues::where('perdorues_id', $first_status['perdorues_id'])
+                        ->first(['emri']);
 
                     $last_status_name = Status::where('status_id', $last_status['status_id'])
                         ->first(['status_id', 'status']);
@@ -64,7 +68,7 @@ class ApiController extends Controller
                         'last_status' => $last_status_name['status'],
                         'last_updated' => $last_status['data_krijimit'],
                         'receiver' => (object) [ 'name' => $receiver['emer'], 'address' => $receiver['adrese'] ],
-                        'sender_name' => '',
+                        'sender_name' => $sender['emri'],
                         'package_priority' => $package['tipi_dergeses']
                     ];
                     $responses[] = $response;
