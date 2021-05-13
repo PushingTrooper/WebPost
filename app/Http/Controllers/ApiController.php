@@ -20,7 +20,7 @@ class ApiController extends Controller
             $user = Perdorues::where('email', $request['email'])->where('password', $request['password'])->first();
 
             if($user != null) {
-                return response()->json(['success' => 'success', 'message' => 'You have successfully logged in'], 200);
+                return response()->json(['success' => 'success', 'message' => 'You have successfully logged in', 'role_id' => $user['rol_id']], 200);
             } else {
                 return response()->json(['success' => 'failed', 'message' => 'The email or password are incorrect'], 403);
             }
