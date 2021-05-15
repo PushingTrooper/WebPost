@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HistorikPorosi;
+use App\Models\Magazine;
 use App\Models\Marres;
 use App\Models\Pagesa;
 use App\Models\Perdorues;
@@ -139,5 +140,10 @@ class ApiController extends Controller
         } else {
             return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 401);
         }
+    }
+
+    public function getAllWarehouses() {
+        $warehouses = Magazine::all();
+        return $warehouses;
     }
 }
