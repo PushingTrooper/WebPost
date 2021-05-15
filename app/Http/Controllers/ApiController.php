@@ -274,4 +274,45 @@ class ApiController extends Controller
             return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
         }
     }
+
+    public function deletePackage(Request $request): JsonResponse
+    {
+        if ($request->has(['user_id', 'tracking_code'])) {
+            $user_id = $request['user_id'];
+            $tracking_code = $request['tracking_code'];
+
+            $user = Perdorues::where('perdorues_id', $user_id)->first('rol_id');
+            if ($user != null) {
+                $role_id = $user['rol_id'];
+                if ($role_id == 1 || $role_id == 2) {
+                    $current_package = Porosi::where('gjurmim_id', $tracking_code)->first('porosi_id');
+                    $package_id = $current_package['porosi_id'];
+                    $last_status = HistorikPorosi::where('porosi_id', $package_id)
+                        ->latest('data_krijimit')->first(['status_id', 'magazine_id']);
+                    $last_status_id = $last_status['status_id'];
+
+                    if($last_status_id < 9) {
+                        $new_status = array('porosi_id' => $package_id, 'status_id' => 9,
+                            'magazine_id' => $last_status['magazine_id'], 'perdorues_id' => $user_id,
+                            'data_krijimit' => Carbon::now());
+
+                        HistorikPorosi::create($new_status);
+                        return response()->json(['success' => 'success',
+                            'message' => 'The package was deleted'], 200);
+                    } else {
+                        return response()->json(['success' => 'success',
+                            'message' => 'The package was already deleted'], 409);
+                    }
+                } else {
+                    return response()->json(['success' => 'failed',
+                        'message' => 'You don\'t the required permissions to delete packages'], 403);
+                }
+            } else {
+                return response()->json(['success' => 'failed',
+                    'message' => 'User was not found'], 404);
+            }
+        } else {
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
+        }
+    }
 }
