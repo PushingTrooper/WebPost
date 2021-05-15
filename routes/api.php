@@ -25,3 +25,4 @@ Route::post('/getPackagesForUser', [ApiController::class, 'getPackagesForUser'])
 Route::post('/getPackageDetails', [ApiController::class, 'getPackageDetails']);
 Route::get('/getAllWarehouses', [ApiController::class, 'getAllWarehouses']);
 Route::post('/changeStatusOfPackage', [ApiController::class, 'changeStatusOfPackage']);
+Route::post('/editPackage', [ApiController::class, 'editPackage']);

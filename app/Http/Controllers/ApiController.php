@@ -173,4 +173,31 @@ class ApiController extends Controller
             return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 401);
         }
     }
+
+    public function editPackage(Request $request): JsonResponse {
+        if($request->has(['tracking_code', 'user_id', 'receiver_name', 'receiver_surname',
+            'receiver_address', 'type', 'package_priority', 'comment'])) {
+
+            $tracking_code = $request['tracking_code'];
+            $user_id = $request['user_id'];
+            $receiver_name = $request['receiver_name'];
+            $receiver_surname = $request['receiver_surname'];
+            $receiver_address = $request['receiver_address'];
+            $type = $request['type'];
+            $package_priority = $request['package_priority'];
+            $comment = $request['comment'];
+
+            $package = Porosi::where('gjurmim_id', $tracking_code)->first();
+            //$receiver = Marres::where('marres_id', $package['marres_id'])->first();
+            $receiver_new_values = ['emer' => $receiver_name, 'mbiemer' => $receiver_surname, 'adrese' => $receiver_address];
+            Marres::where('marres_id', $package['marres_id'])->update($receiver_new_values);
+
+            $package_new_values = ['tipi'=>$type, 'tipi_dergeses'=>$package_priority, 'koment'=>$comment];
+            Porosi::where('gjurmim_id', $tracking_code)->update($package_new_values);
+
+            return response()->json(['success' => 'success', 'message' => 'Package updated successfully'], 200);
+        } else {
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 401);
+        }
+    }
 }
