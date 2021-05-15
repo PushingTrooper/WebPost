@@ -10,6 +10,7 @@ use App\Models\Perdorues;
 use App\Models\Porosi;
 use App\Models\Status;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -24,10 +25,10 @@ class ApiController extends Controller
 
     public function login(Request $request): JsonResponse
     {
-        if($request->has(['email', 'password'])) {
+        if ($request->has(['email', 'password'])) {
             $user = Perdorues::where('email', $request['email'])->where('password', $request['password'])->first();
 
-            if($user != null) {
+            if ($user != null) {
                 return response()->json(['success' => 'success', 'message' => 'You have successfully logged in', 'role_id' => $user['rol_id']], 200);
             } else {
                 return response()->json(['success' => 'failed', 'message' => 'The email or password are incorrect'], 403);
@@ -39,10 +40,10 @@ class ApiController extends Controller
 
     public function getPackagesForUser(Request $request): JsonResponse
     {
-        if($request->has('user_id')) {
+        if ($request->has('user_id')) {
             $user = Perdorues::where('perdorues_id', $request['user_id'])->first();
-            if($user['rol_id'] != 4) {
-                $packages = Porosi::all( 'porosi_id',
+            if ($user['rol_id'] != 4) {
+                $packages = Porosi::all('porosi_id',
                     'gjurmim_id',
                     'pagese_id',
                     'marres_id',
@@ -65,11 +66,11 @@ class ApiController extends Controller
                     $receiver = Marres::where('marres_id', $package['marres_id'])
                         ->first(['emer', 'adrese']);
 
-                    $response = (object) [
+                    $response = (object)[
                         'tracking_code' => $package['gjurmim_id'],
                         'last_status' => $last_status_name['status'],
                         'last_updated' => $last_status['data_krijimit'],
-                        'receiver' => (object) [ 'name' => $receiver['emer'], 'address' => $receiver['adrese'] ],
+                        'receiver' => (object)['name' => $receiver['emer'], 'address' => $receiver['adrese']],
                         'sender_name' => $sender['emri'],
                         'package_priority' => $package['tipi_dergeses']
                     ];
@@ -89,12 +90,13 @@ class ApiController extends Controller
         }
     }
 
-    public function getPackageDetails(Request $request) {
-        if($request->has('tracking_code')) {
+    public function getPackageDetails(Request $request): JsonResponse
+    {
+        if ($request->has('tracking_code')) {
             $package = Porosi::where('gjurmim_id', $request['tracking_code'])
                 ->first(['porosi_id', 'pagese_id', 'marres_id', 'tipi', 'tipi_dergeses', 'koment']);
 
-            if($package!=null) {
+            if ($package != null) {
                 $historyOrder = HistorikPorosi::where('porosi_id', $package['porosi_id'])
                     ->get(['magazine_id', 'perdorues_id', 'status_id']);
 
@@ -103,7 +105,7 @@ class ApiController extends Controller
                 foreach ($historyOrder as $time) {
                     $user = Perdorues::where('perdorues_id', $time['perdorues_id'])
                         ->first(['perdorues_id', 'emri', 'mbiemri', 'rol_id']);
-                    $history[] = (object) [
+                    $history[] = (object)[
                         'warehouse_id' => $time['magazine_id'],
                         'user' =>
                             ['id' => $user['perdorues_id'], 'role' => $user['rol_id'],
@@ -113,14 +115,14 @@ class ApiController extends Controller
                 }
 
                 $paymentQuery = Pagesa::where('pagese_id', $package['pagese_id'])->first(['shuma', 'kryer']);
-                $payment = (object) [
+                $payment = (object)[
                     'value' => $paymentQuery['shuma'],
                     'is_completed' => $paymentQuery['kyer']
                 ];
 
                 $receiverQuery = Marres::where('marres_id', $package['marres_id'])
                     ->first(['emer', 'mbiemer', 'adrese']);
-                $receiver = (object) [
+                $receiver = (object)[
                     'name' => $receiverQuery['emer'],
                     'surnmae' => $receiverQuery['mbiemer'],
                     'address' => $receiverQuery['adrese'],
@@ -142,8 +144,33 @@ class ApiController extends Controller
         }
     }
 
-    public function getAllWarehouses() {
+    public function getAllWarehouses(): JsonResponse
+    {
         $warehouses = Magazine::all();
-        return $warehouses;
+        return response()->json(['warehouses' => $warehouses], 200);
+    }
+
+    public function changeStatusOfPackage(Request $request): JsonResponse
+    {
+        if($request->has(['user_id', 'tracking_code'])) {
+            $user_id = $request['user_id'];
+            $tracking_code = $request['tracking_code'];
+            $current_package = Porosi::where('gjurmim_id', $tracking_code)->first('porosi_id');
+            $package_id = $current_package['porosi_id'];
+
+            $last_status = HistorikPorosi::where('porosi_id', $package_id)
+                ->latest('data_krijimit')->first(['status_id', 'magazine_id']);
+            $last_status_id = $last_status['status_id'];
+            //TODO: Nje check per statuset kur te flasesh dhe me Tedin
+            $new_status_id = $last_status_id + 1;
+            $new_status = array('porosi_id' => $package_id, 'status_id' => $new_status_id,
+                'magazine_id' => $last_status['magazine_id'], 'perdorues_id' => $user_id,
+                'data_krijimit' => Carbon::now());
+
+            HistorikPorosi::create($new_status);
+            return response()->json(['success' => 'success', 'message' => 'Status updated successfully'], 200);
+        } else {
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 401);
+        }
     }
 }
