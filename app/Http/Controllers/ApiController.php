@@ -315,4 +315,81 @@ class ApiController extends Controller
             return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
         }
     }
+
+    public function getAllPostmenLocation(Request $request): JsonResponse {
+        if($request->has(['user_id'])) {
+            $user_id = $request['user_id'];
+            $user = Perdorues::where('perdorues_id', $user_id)->first('rol_id');
+            if ($user != null) {
+                $role_id = $user['rol_id'];
+                if($role_id == 1) {
+                    $postmen = Perdorues::where('rol_id', 3)
+                        ->get(['emri', 'mbiemri', 'perdorues_id', 'latitude', 'longitude']);
+
+                    $postmen_response = array();
+                    foreach ($postmen as $postman) {
+                        $postmen_response[] = (object) [
+                            'name' => $postman['emri'],
+                            'surname' => $postman['mbiemri'],
+                            'user_id' => $postman['perdorues_id'],
+                            'latitude' => $postman['latitude'],
+                            'longitude' => $postman['longitude']
+                        ];
+                    }
+                    return response()->json(['postmen' => $postmen_response], 200);
+                } else {
+                    return response()->json(['success' => 'failed',
+                        'message' => 'You don\'t the required permissions for this request'], 403);
+                }
+            } else {
+                return response()->json(['success' => 'failed',
+                    'message' => 'User was not found'], 404);
+            }
+        } else {
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
+        }
+    }
+
+    public function changePayAndRole(Request $request): JsonResponse {
+        if($request->has(['current_user_id', 'user_id', 'pay', 'role_id'])) {
+            $current_user_id = $request['current_user_id'];
+            $user_id = $request['user_id'];
+            $pay = $request['pay'];
+            $role_id = $request['role_id'];
+
+            if(!is_numeric($pay)) {
+                return response()->json(['success' => 'failed', 'message' => 'Pay is not a number'], 400);
+            } else if($role_id > 4) {
+                //TODO: Check the number roles in the future if you want
+                return response()->json(['success' => 'failed', 'message' => 'Role doesn\'t exist'], 400);
+            } else {
+                $current_user = Perdorues::where('perdorues_id', $current_user_id)->first('rol_id');
+                if ($current_user != null) {
+                    $current_role_id = $current_user['rol_id'];
+                    if ($current_role_id == 1) {
+                        $user = Perdorues::where('perdorues_id', $user_id)->first('rol_id');
+                        if($user != null) {
+                            $new_values = ['paga' => $pay, 'rol_id' => $role_id];
+                            Perdorues::where('perdorues_id', $user_id)->update($new_values);
+
+                            return response()->json(['success' => 'success',
+                                'message' => 'The user was updated'], 200);
+                        } else {
+                            return response()->json(['success' => 'failed',
+                                'message' => 'Selected user was not found'], 404);
+                        }
+
+                    } else {
+                        return response()->json(['success' => 'failed',
+                            'message' => 'You don\'t the required permissions'], 403);
+                    }
+                } else {
+                    return response()->json(['success' => 'failed',
+                        'message' => 'User was not found'], 404);
+                }
+            }
+        } else {
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
+        }
+    }
 }

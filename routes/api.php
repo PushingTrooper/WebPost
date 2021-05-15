@@ -28,3 +28,5 @@ Route::post('/changeStatusOfPackage', [ApiController::class, 'changeStatusOfPack
 Route::post('/editPackage', [ApiController::class, 'editPackage']);
 Route::post('/reportLostPackage', [ApiController::class, 'reportLostPackage']);
 Route::post('/deletePackage', [ApiController::class, 'deletePackage']);
+Route::post('/getAllPostmenLocation', [ApiController::class, 'getAllPostmenLocation']);
+Route::post('/changePayAndRole', [ApiController::class, 'changePayAndRole']);
