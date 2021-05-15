@@ -34,7 +34,7 @@ class ApiController extends Controller
                 return response()->json(['success' => 'failed', 'message' => 'The email or password are incorrect'], 403);
             }
         } else {
-            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 401);
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
         }
     }
 
@@ -86,7 +86,7 @@ class ApiController extends Controller
             }
 
         } else {
-            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 401);
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
         }
     }
 
@@ -140,7 +140,7 @@ class ApiController extends Controller
                 return response()->json(['success' => 'failed', 'message' => 'Did not find the requested package'], 404);
             }
         } else {
-            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 401);
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
         }
     }
 
@@ -150,7 +150,8 @@ class ApiController extends Controller
         return response()->json(['warehouses' => $warehouses], 200);
     }
 
-    private function goOneStatusUp($last_status_id, $package_id, $last_status, $user_id) {
+    private function goOneStatusUp($last_status_id, $package_id, $last_status, $user_id)
+    {
         $new_status_id = $last_status_id + 1;
         $new_status = array('porosi_id' => $package_id, 'status_id' => $new_status_id,
             'magazine_id' => $last_status['magazine_id'], 'perdorues_id' => $user_id,
@@ -161,7 +162,7 @@ class ApiController extends Controller
 
     public function changeStatusOfPackage(Request $request): JsonResponse
     {
-        if($request->has(['user_id', 'tracking_code'])) {
+        if ($request->has(['user_id', 'tracking_code'])) {
             $user_id = $request['user_id'];
             $tracking_code = $request['tracking_code'];
             $current_package = Porosi::where('gjurmim_id', $tracking_code)->first('porosi_id');
@@ -171,24 +172,24 @@ class ApiController extends Controller
             $last_status_id = $last_status['status_id'];
 
             $user = Perdorues::where('perdorues_id', $user_id)->first('rol_id');
-            if($user != null) {
+            if ($user != null) {
                 $role_id = $user['rol_id'];
-                if($role_id == 2) {
-                    if($last_status_id == 1 || $last_status_id == 3) {
+                if ($role_id == 2) {
+                    if ($last_status_id == 1 || $last_status_id == 3) {
                         $this->goOneStatusUp($last_status_id, $package_id, $last_status, $user_id);
                         return response()->json(['success' => 'success', 'message' => 'Status updated successfully'], 200);
                     } else {
                         return response()->json(['success' => 'failed', 'message' => 'You don\'t have the rights to change this status!'], 403);
                     }
-                } else if($role_id == 3) {
-                    if($last_status_id == 2 || $last_status_id == 4 || $last_status_id == 5 || $last_status_id == 6) {
+                } else if ($role_id == 3) {
+                    if ($last_status_id == 2 || $last_status_id == 4 || $last_status_id == 5 || $last_status_id == 6) {
                         $this->goOneStatusUp($last_status_id, $package_id, $last_status, $user_id);
                         return response()->json(['success' => 'success', 'message' => 'Status updated successfully'], 200);
                     } else {
                         return response()->json(['success' => 'failed', 'message' => 'You don\'t have the rights to change this status!'], 403);
                     }
-                } else if($role_id == 1) {
-                    if($last_status_id < 7) {
+                } else if ($role_id == 1) {
+                    if ($last_status_id < 7) {
                         $this->goOneStatusUp($last_status_id, $package_id, $last_status, $user_id);
                         return response()->json(['success' => 'success', 'message' => 'Status updated successfully'], 200);
                     } else {
@@ -201,12 +202,13 @@ class ApiController extends Controller
                 return response()->json(['success' => 'failed', 'message' => 'This user does not exist'], 404);
             }
         } else {
-            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 401);
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
         }
     }
 
-    public function editPackage(Request $request): JsonResponse {
-        if($request->has(['tracking_code', 'user_id', 'receiver_name', 'receiver_surname',
+    public function editPackage(Request $request): JsonResponse
+    {
+        if ($request->has(['tracking_code', 'user_id', 'receiver_name', 'receiver_surname',
             'receiver_address', 'type', 'package_priority', 'comment'])) {
 
             $tracking_code = $request['tracking_code'];
@@ -223,12 +225,53 @@ class ApiController extends Controller
             $receiver_new_values = ['emer' => $receiver_name, 'mbiemer' => $receiver_surname, 'adrese' => $receiver_address];
             Marres::where('marres_id', $package['marres_id'])->update($receiver_new_values);
 
-            $package_new_values = ['tipi'=>$type, 'tipi_dergeses'=>$package_priority, 'koment'=>$comment];
+            $package_new_values = ['tipi' => $type, 'tipi_dergeses' => $package_priority, 'koment' => $comment];
             Porosi::where('gjurmim_id', $tracking_code)->update($package_new_values);
 
             return response()->json(['success' => 'success', 'message' => 'Package updated successfully'], 200);
         } else {
-            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 401);
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
+        }
+    }
+
+    public function reportLostPackage(Request $request): JsonResponse
+    {
+        if ($request->has(['user_id', 'tracking_code'])) {
+            $user_id = $request['user_id'];
+            $tracking_code = $request['tracking_code'];
+
+            $user = Perdorues::where('perdorues_id', $user_id)->first('rol_id');
+            if ($user != null) {
+                $role_id = $user['rol_id'];
+                if ($role_id != 4) {
+                    $current_package = Porosi::where('gjurmim_id', $tracking_code)->first('porosi_id');
+                    $package_id = $current_package['porosi_id'];
+                    $last_status = HistorikPorosi::where('porosi_id', $package_id)
+                        ->latest('data_krijimit')->first(['status_id', 'magazine_id']);
+                    $last_status_id = $last_status['status_id'];
+
+                    if($last_status_id < 8) {
+                        $new_status = array('porosi_id' => $package_id, 'status_id' => 8,
+                            'magazine_id' => $last_status['magazine_id'], 'perdorues_id' => $user_id,
+                            'data_krijimit' => Carbon::now());
+
+                        HistorikPorosi::create($new_status);
+                        return response()->json(['success' => 'success',
+                            'message' => 'The package was reported as lost'], 200);
+                    } else {
+                        return response()->json(['success' => 'success',
+                            'message' => 'The package was already reported as lost'], 409);
+                    }
+                } else {
+                    return response()->json(['success' => 'failed',
+                        'message' => 'You don\'t the required permissions to report lost packages'], 403);
+                }
+            } else {
+                return response()->json(['success' => 'failed',
+                    'message' => 'User was not found'], 404);
+            }
+        } else {
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
         }
     }
 }
