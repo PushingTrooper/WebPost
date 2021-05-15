@@ -150,6 +150,15 @@ class ApiController extends Controller
         return response()->json(['warehouses' => $warehouses], 200);
     }
 
+    private function goOneStatusUp($last_status_id, $package_id, $last_status, $user_id) {
+        $new_status_id = $last_status_id + 1;
+        $new_status = array('porosi_id' => $package_id, 'status_id' => $new_status_id,
+            'magazine_id' => $last_status['magazine_id'], 'perdorues_id' => $user_id,
+            'data_krijimit' => Carbon::now());
+
+        HistorikPorosi::create($new_status);
+    }
+
     public function changeStatusOfPackage(Request $request): JsonResponse
     {
         if($request->has(['user_id', 'tracking_code'])) {
@@ -157,18 +166,40 @@ class ApiController extends Controller
             $tracking_code = $request['tracking_code'];
             $current_package = Porosi::where('gjurmim_id', $tracking_code)->first('porosi_id');
             $package_id = $current_package['porosi_id'];
-
             $last_status = HistorikPorosi::where('porosi_id', $package_id)
                 ->latest('data_krijimit')->first(['status_id', 'magazine_id']);
             $last_status_id = $last_status['status_id'];
-            //TODO: Nje check per statuset kur te flasesh dhe me Tedin
-            $new_status_id = $last_status_id + 1;
-            $new_status = array('porosi_id' => $package_id, 'status_id' => $new_status_id,
-                'magazine_id' => $last_status['magazine_id'], 'perdorues_id' => $user_id,
-                'data_krijimit' => Carbon::now());
 
-            HistorikPorosi::create($new_status);
-            return response()->json(['success' => 'success', 'message' => 'Status updated successfully'], 200);
+            $user = Perdorues::where('perdorues_id', $user_id)->first('rol_id');
+            if($user != null) {
+                $role_id = $user['rol_id'];
+                if($role_id == 2) {
+                    if($last_status_id == 1 || $last_status_id == 3) {
+                        $this->goOneStatusUp($last_status_id, $package_id, $last_status, $user_id);
+                        return response()->json(['success' => 'success', 'message' => 'Status updated successfully'], 200);
+                    } else {
+                        return response()->json(['success' => 'failed', 'message' => 'You don\'t have the rights to change this status!'], 403);
+                    }
+                } else if($role_id == 3) {
+                    if($last_status_id == 2 || $last_status_id == 4 || $last_status_id == 5 || $last_status_id == 6) {
+                        $this->goOneStatusUp($last_status_id, $package_id, $last_status, $user_id);
+                        return response()->json(['success' => 'success', 'message' => 'Status updated successfully'], 200);
+                    } else {
+                        return response()->json(['success' => 'failed', 'message' => 'You don\'t have the rights to change this status!'], 403);
+                    }
+                } else if($role_id == 1) {
+                    if($last_status_id < 7) {
+                        $this->goOneStatusUp($last_status_id, $package_id, $last_status, $user_id);
+                        return response()->json(['success' => 'success', 'message' => 'Status updated successfully'], 200);
+                    } else {
+                        return response()->json(['success' => 'failed', 'message' => 'You don\'t have the rights to change this status!'], 403);
+                    }
+                } else {
+                    return response()->json(['success' => 'failed', 'message' => 'You don\'t have the rights to change this status!'], 403);
+                }
+            } else {
+                return response()->json(['success' => 'failed', 'message' => 'This user does not exist'], 404);
+            }
         } else {
             return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 401);
         }
