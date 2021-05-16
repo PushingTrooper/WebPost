@@ -23,6 +23,13 @@ class CreateHistorikPorosi extends Migration
             $table->dateTime('updated_at');
             $table->dateTime('created_at');
         });
+        /*SQL CREATE TABLE historik_porosis(
+            status_porosi_id INT NOT NULL,
+            status_id INT,
+            magazine_id INT,
+            data_krijimit DATETIME,
+            PRIMARY KEY(status_porosi_id)
+        )*/
     }
 
     /**
