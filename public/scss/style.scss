@@ -1,0 +1,32 @@
+@import "variables";
+@import "fonts";
+
+body {
+    font-family: $font-regular;
+    background-color: #f2f7f8;
+}
+
+#view-login {
+    .background-container {
+        display: flow-root;
+        min-height: 100vh;
+        min-width: 100vw;
+        background-image: url("/storage/images/login_background.png");
+        background-size: cover;
+    }
+    .login-form-container {
+        margin-top: 150px;
+        h1 {
+            font-family: $font-medium;
+            text-transform: uppercase;
+            margin-bottom: 0;
+        }
+        .form-section {
+            margin-top: $margin;
+            input {
+                height: 40px;
+                padding: 5px 5px 5px 40px;
+            }
+        }
+    }
+}
