@@ -36,6 +36,7 @@ class Perdorues extends Model
         'rol_id',
         'qytet_id',
         'email',
+        'password',
         'emri',
         'mbiemri',
         'paga',

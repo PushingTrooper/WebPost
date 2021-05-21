@@ -21,6 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/test', [ApiController::class, 'getAllUsers']);
 Route::post('/login', [ApiController::class, 'login']);
+Route::post('/registerCustomer', [ApiController::class, 'registerCustomer']);
 Route::post('/getPackagesForUser', [ApiController::class, 'getPackagesForUser']);
 Route::post('/getPackageDetails', [ApiController::class, 'getPackageDetails']);
 Route::get('/getAllWarehouses', [ApiController::class, 'getAllWarehouses']);
