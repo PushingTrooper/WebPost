@@ -52,11 +52,11 @@ class ApiController extends Controller
                 'adrese' => $address, 'rol_id' => 4,
                 'magazine_id' => 0, 'qytet_id' => 0,
                 'paga' => 0, 'foto_profili' => '',
-                'latitude' => -1, 'longitude' => -1,
+                'latitude' => 90, 'longitude' => 90,
                 'kerkuar_ndryshim_fjalekalimi' => 0);
 
             Perdorues::create($new_user);
-            return response()->json(['success' => 'success', 'message' => 'The user is successfully created']);
+            return response()->json(['success' => 'success', 'message' => 'The user is successfully created'], 200);
         } else {
             return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
         }
