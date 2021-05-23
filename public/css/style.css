@@ -1,78 +1,110 @@
 @font-face {
-  font-family: "Roboto Regular";
-  src: url("../fonts/Roboto-Regular.ttf");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Roboto Regular";
+    src: url("../fonts/Roboto-Regular.ttf");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
+
 @font-face {
-  font-family: "Roboto Medium";
-  src: url("../fonts/Roboto-Medium.ttf");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Roboto Medium";
+    src: url("../fonts/Roboto-Medium.ttf");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
+
 @font-face {
-  font-family: "Roboto Bold";
-  src: url("../fonts/Roboto-Bold.ttf");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Roboto Bold";
+    src: url("../fonts/Roboto-Bold.ttf");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
+
 @font-face {
-  font-family: "Roboto Italic";
-  src: url("../fonts/Roboto-Italic.ttf");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Roboto Italic";
+    src: url("../fonts/Roboto-Italic.ttf");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
+
 @font-face {
-  font-family: "Roboto Light";
-  src: url("../fonts/Roboto-Light.ttf");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Roboto Light";
+    src: url("../fonts/Roboto-Light.ttf");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
 }
+
 @font-face {
-  font-family: "Roboto Thin";
-  src: url("../fonts/Roboto-Thin.ttf");
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Roboto Thin";
+    src: url("../fonts/Roboto-Thin.ttf");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
 }
+
 @font-face {
-  font-family: "Roboto Black";
-  src: url("../fonts/Roboto-Black.ttf");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Roboto Black";
+    src: url("../fonts/Roboto-Black.ttf");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
 }
+
 body {
-  font-family: "Roboto Regular", sans-serif;
-  background-color: #f2f7f8;
+    font-family: "Roboto Regular", sans-serif;
+    background-color: #f2f7f8;
 }
 
 #view-login .background-container {
-  display: flow-root;
-  min-height: 100vh;
-  min-width: 100vw;
-  background-image: url("/storage/images/login_background.png");
-  background-size: cover;
+    display: flow-root;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-image: url("../images/background@2x-edited.png");
+    background-size: cover;
 }
+
 #view-login .login-form-container {
-  margin-top: 150px;
+    margin-top: 150px;
 }
+
 #view-login .login-form-container h1 {
-  font-family: "Roboto Medium", sans-serif;
-  text-transform: uppercase;
-  margin-bottom: 0;
+    font-family: "Roboto Medium", sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 0;
 }
+
 #view-login .login-form-container .form-section {
-  margin-top: 2rem;
+    margin-top: 2rem;
 }
+
 #view-login .login-form-container .form-section input {
-  height: 40px;
-  padding: 5px 5px 5px 40px;
+    height: 40px;
+    padding: 5px 5px 5px 40px;
+    box-shadow: 0 4px 5px 1px rgba(0, 0, 0, 0.24);
+    border-radius: 12px;
+}
+
+#view-login #email {
+    background-image: url("../icons/email.svg");
+    background-repeat: no-repeat;
+    background-position: 8px 0;
+    background-size: contain;
+}
+
+#view-login .login-form-container .form-section label {
+    font-family: "Roboto Bold", sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+}
+
+#view-login .login-form-container .form-section input[type="button"] {
+    height: 40px;
+    background-color: #FFE400;
+    padding: 5px 5px 5px 5px;
 }
 
 /*# sourceMappingURL=style.css.map */
