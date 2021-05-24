@@ -88,11 +88,16 @@ body {
     border-radius: 12px;
 }
 
-#view-login #email {
+/*#view-login #email {
     background-image: url("../icons/email.svg");
     background-repeat: no-repeat;
     background-position: 8px 0;
     background-size: contain;
+}*/
+
+#view-login .input-icon {
+    position: absolute;
+    scale: 0.7;
 }
 
 #view-login .login-form-container .form-section label {
