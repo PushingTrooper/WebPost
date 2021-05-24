@@ -31,10 +31,10 @@ class ApiController extends Controller
             if ($user != null) {
                 return response()->json(['success' => 'success', 'message' => 'You have successfully logged in', 'role_id' => $user['rol_id']], 200);
             } else {
-                return response()->json(['success' => 'failed', 'message' => 'The email or password are incorrect'], 403);
+                return response()->json(['success' => 'failed', 'message' => 'The email or password are incorrect!'], 403);
             }
         } else {
-            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters!'], 400);
         }
     }
 

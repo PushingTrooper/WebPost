@@ -83,7 +83,7 @@ body {
 
 #view-login .login-form-container .form-section input {
     height: 40px;
-    padding: 5px 5px 5px 40px;
+    padding: 5px 5px 5px 55px;
     box-shadow: 0 4px 5px 1px rgba(0, 0, 0, 0.24);
     border-radius: 12px;
 }
@@ -99,6 +99,18 @@ body {
     position: absolute;
     scale: 0.7;
 }
+
+#request-message{
+
+    margin-top: 20px;
+    background-color: darkorange;
+    padding: 5px;
+    border-radius: 25px;
+    border:1px solid #FFE400;
+    color: black;
+
+}
+
 
 #view-login .login-form-container .form-section label {
     font-family: "Roboto Bold", sans-serif;

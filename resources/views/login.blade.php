@@ -32,6 +32,9 @@
                             <div class="form-section">
                                 <input type="button" value="Kyçu" class="form-control" id="login-button" onclick="loginClick()">
                             </div>
+                            <div class="form-section">
+                                <div id="request-message" style="visibility: hidden;"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
