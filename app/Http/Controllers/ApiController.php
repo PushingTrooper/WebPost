@@ -47,16 +47,21 @@ class ApiController extends Controller
             $surname = $request['surname'];
             $address = $request['address'];
 
-            $new_user = array('email' => $email, 'password' => $password,
-                'emri' => $name, 'mbiemri' => $surname,
-                'adrese' => $address, 'rol_id' => 4,
-                'magazine_id' => 0, 'qytet_id' => 0,
-                'paga' => 0, 'foto_profili' => '',
-                'latitude' => 90, 'longitude' => 90,
-                'kerkuar_ndryshim_fjalekalimi' => 0);
+            $user = Perdorues::where('email', $request['email'])->first();
+            if($user == null) {
+                $new_user = array('email' => $email, 'password' => $password,
+                    'emri' => $name, 'mbiemri' => $surname,
+                    'adrese' => $address, 'rol_id' => 4,
+                    'magazine_id' => 0, 'qytet_id' => 0,
+                    'paga' => 0, 'foto_profili' => '',
+                    'latitude' => 90, 'longitude' => 90,
+                    'kerkuar_ndryshim_fjalekalimi' => 0);
 
-            Perdorues::create($new_user);
-            return response()->json(['success' => 'success', 'message' => 'The user is successfully created'], 200);
+                Perdorues::create($new_user);
+                return response()->json(['success' => 'success', 'message' => 'The user is successfully created'], 200);
+            } else {
+                return response()->json(['success' => 'failed', 'message' => 'User already exists'], 401);
+            }
         } else {
             return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
         }
