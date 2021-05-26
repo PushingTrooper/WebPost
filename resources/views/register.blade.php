@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('pageTitle', 'Home')
+@section('pageTitle', 'Register')
 
 @section('content')
     <div id="view-login">

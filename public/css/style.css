@@ -1,127 +1,257 @@
 @font-face {
-    font-family: "Roboto Regular";
-    src: url("../fonts/Roboto-Regular.ttf");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Roboto Regular";
+  src: url("../fonts/Roboto-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
-
 @font-face {
-    font-family: "Roboto Medium";
-    src: url("../fonts/Roboto-Medium.ttf");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Roboto Medium";
+  src: url("../fonts/Roboto-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
-
 @font-face {
-    font-family: "Roboto Bold";
-    src: url("../fonts/Roboto-Bold.ttf");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Roboto Bold";
+  src: url("../fonts/Roboto-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
-
 @font-face {
-    font-family: "Roboto Italic";
-    src: url("../fonts/Roboto-Italic.ttf");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Roboto Italic";
+  src: url("../fonts/Roboto-Italic.ttf");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
-
 @font-face {
-    font-family: "Roboto Light";
-    src: url("../fonts/Roboto-Light.ttf");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Roboto Light";
+  src: url("../fonts/Roboto-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
-
 @font-face {
-    font-family: "Roboto Thin";
-    src: url("../fonts/Roboto-Thin.ttf");
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Roboto Thin";
+  src: url("../fonts/Roboto-Thin.ttf");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
 }
-
 @font-face {
-    font-family: "Roboto Black";
-    src: url("../fonts/Roboto-Black.ttf");
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Roboto Black";
+  src: url("../fonts/Roboto-Black.ttf");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
-
 body {
-    font-family: "Roboto Regular", sans-serif;
-    background-color: #f2f7f8;
+  font-family: "Roboto Regular", sans-serif;
+  background-color: #f2f7f8;
 }
 
 #view-login .background-container {
-    display: flow-root;
-    min-height: 100vh;
-    min-width: 100vw;
-    background-image: url("../images/background@2x-edited.png");
-    background-size: cover;
+  display: flow-root;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-image: url("/storage/images/login_background.png");
+  background-size: cover;
 }
-
 #view-login .login-form-container {
-    margin-top: 150px;
+  margin-top: 150px;
 }
-
 #view-login .login-form-container h1 {
-    font-family: "Roboto Medium", sans-serif;
-    text-transform: uppercase;
-    margin-bottom: 0;
+  font-family: "Roboto Medium", sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 0;
 }
-
 #view-login .login-form-container .form-section {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
-
 #view-login .login-form-container .form-section input {
-    height: 40px;
-    padding: 5px 5px 5px 55px;
-    box-shadow: 0 4px 5px 1px rgba(0, 0, 0, 0.24);
-    border-radius: 12px;
+  height: 40px;
+  padding: 5px 5px 5px 40px;
 }
 
-/*#view-login #email {
-    background-image: url("../icons/email.svg");
-    background-repeat: no-repeat;
-    background-position: 8px 0;
-    background-size: contain;
-}*/
-
-#view-login .input-icon {
-    position: absolute;
-    scale: 0.7;
+#client-homepage {
+  overflow: hidden;
+  display: flow-root;
+  background-color: #e8ebed;
+  min-width: 100%;
+  min-height: 100%;
 }
-
-#request-message{
-
-    margin-top: 20px;
-    background-color: darkorange;
-    padding: 5px;
-    border-radius: 25px;
-    border:1px solid #FFE400;
-    color: black;
-
+#client-homepage .title-bar {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
-
-
-#view-login .login-form-container .form-section label {
-    font-family: "Roboto Bold", sans-serif;
-    text-transform: uppercase;
-    margin-bottom: 0.2rem;
+#client-homepage .title-bar img {
+  height: 70px;
+  margin-left: 2rem;
 }
-
-#view-login .login-form-container .form-section input[type="button"] {
-    height: 40px;
-    background-color: #FFE400;
-    padding: 5px 5px 5px 5px;
+#client-homepage .title-bar .button-container {
+  margin-left: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-right: 2rem;
+}
+@media screen and (max-width: 575px) {
+  #client-homepage .title-bar .button-container {
+    width: 100%;
+    justify-content: unset;
+    margin-left: 2rem;
+    margin-top: 1.5rem;
+  }
+}
+#client-homepage .title-bar .button-container button {
+  border-radius: 6px;
+  border: 2px solid;
+  color: #000000;
+  padding: 0.1em 0.7em;
+  transition: border-color 220ms cubic-bezier(0.63, 0, 0.37, 1), opacity 220ms cubic-bezier(0.63, 0, 0.37, 1);
+}
+#client-homepage .title-bar .button-container button:hover, #client-homepage .title-bar .button-container button:focus {
+  border-color: #000000;
+  opacity: 0.7;
+}
+#client-homepage .title-bar .button-container .kycu {
+  background-color: #ffe400;
+  border-color: #ffe400;
+  margin-right: 1rem;
+}
+#client-homepage .title-bar .button-container .regjistrohu {
+  background-color: transparent;
+  border-color: #000000;
+}
+#client-homepage .gjurmo-form-container .z-indexed-div {
+  z-index: 1;
+}
+#client-homepage .gjurmo-form-container .colored-box {
+  position: absolute;
+  height: 10rem;
+  width: 50%;
+  z-index: -1;
+}
+@media screen and (max-width: 575px) {
+  #client-homepage .gjurmo-form-container .colored-box {
+    height: 5rem;
+    width: 50%;
+  }
+}
+#client-homepage .gjurmo-form-container .colored-box.yellow {
+  background-color: #fdf567;
+}
+#client-homepage .gjurmo-form-container .colored-box.yellow:nth-of-type(2) {
+  left: 0;
+  bottom: 2rem;
+}
+#client-homepage .gjurmo-form-container .colored-box.yellow:nth-of-type(4) {
+  right: 0;
+  top: 2rem;
+}
+#client-homepage .gjurmo-form-container .colored-box.blue {
+  background-color: #c5e9f0;
+}
+#client-homepage .gjurmo-form-container .colored-box.blue:nth-of-type(1) {
+  left: -2rem;
+  bottom: 0;
+}
+#client-homepage .gjurmo-form-container .colored-box.blue:nth-of-type(3) {
+  right: -2rem;
+  top: 0;
+}
+#client-homepage .gjurmo-form-container img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  z-index: 2;
+}
+#client-homepage .gjurmo-form-container .form-section {
+  z-index: 2;
+}
+#client-homepage .gjurmo-form-container .form-section h3 {
+  text-transform: uppercase;
+  font-family: "Roboto Bold", sans-serif;
+}
+#client-homepage .gjurmo-form-container .form-section #gjurmo {
+  height: unset;
+  padding: 0.2rem 0.7rem;
+  padding-right: 5rem;
+  border-radius: 16px;
+}
+#client-homepage .gjurmo-form-container .form-section input[type=submit] {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 32.38px;
+  border-radius: 16px;
+  padding: 0.1em 0.7em;
+  background-color: #ffe400;
+  border: 2px solid #ffe400;
+  transition: border-color 220ms cubic-bezier(0.63, 0, 0.37, 1);
+}
+#client-homepage .gjurmo-form-container .form-section input[type=submit]:hover, #client-homepage .gjurmo-form-container .form-section input[type=submit]:focus {
+  border-color: #000000;
+}
+#client-homepage .title-with-shapes {
+  display: inline-block;
+  z-index: 1;
+  position: relative;
+}
+#client-homepage .title-with-shapes .circle-yellow {
+  background-color: #fdf567;
+  z-index: -1;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-30%, -30%);
+}
+#client-homepage .title-with-shapes h2 {
+  font-family: "Roboto Bold", sans-serif;
+  color: #437f97;
+  text-shadow: 4px 0 #000000;
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+#client-homepage [class*=col-].z-indexed-div {
+  z-index: 1;
+}
+#client-homepage .orange-card {
+  height: 300px;
+  width: 80%;
+  margin: auto;
+  position: relative;
+  background-color: #ffbb00;
+}
+#client-homepage .orange-card.circle-top::after, #client-homepage .orange-card.circle-bottom::after {
+  content: "";
+  width: 50%;
+  padding-top: 50%;
+  background-color: #fdf567;
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+}
+@media screen and (max-width: 767px) {
+  #client-homepage .orange-card.circle-top::after, #client-homepage .orange-card.circle-bottom::after {
+    display: none;
+  }
+}
+#client-homepage .orange-card.circle-top::after {
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+}
+#client-homepage .orange-card.circle-bottom::after {
+  right: 0;
+  bottom: 0;
+  transform: translate(50%, 50%);
 }
 
 /*# sourceMappingURL=style.css.map */
