@@ -14,15 +14,19 @@ body {
         background-image: url("/storage/images/login_background.png");
         background-size: cover;
     }
+
     .login-form-container {
         margin-top: 150px;
+
         h1 {
             font-family: $font-medium;
             text-transform: uppercase;
             margin-bottom: 0;
         }
+
         .form-section {
             margin-top: $margin;
+
             input {
                 height: 40px;
                 padding: 5px 5px 5px 40px;
@@ -37,13 +41,16 @@ body {
     background-color: #e8ebed;
     min-width: 100%;
     min-height: 100%;
+
     .title-bar {
         margin-top: 2rem;
         margin-bottom: 1rem;
+
         img {
             height: 70px;
             margin-left: 2rem;
         }
+
         .button-container {
             @media screen and (max-width: $screen-small - 1px) {
                 width: 100%;
@@ -56,71 +63,85 @@ body {
             justify-content: space-evenly;
             align-items: center;
             margin-right: 2rem;
+
             button {
                 border-radius: $border-radius;
                 border: 2px solid;
                 color: $black;
                 padding: $button-padding;
                 transition: border-color $transition-time $transition-function,
-                            opacity $transition-time $transition-function;
+                opacity $transition-time $transition-function;
+
                 &:hover, &:focus {
                     border-color: $black;
                     opacity: .7;
                 }
             }
+
             .kycu {
                 background-color: $yellow1;
                 border-color: $yellow1;
                 margin-right: 1rem;
             }
+
             .regjistrohu {
                 background-color: transparent;
                 border-color: $black;
             }
         }
     }
+
     .gjurmo-form-container {
         .z-indexed-div {
             z-index: 1;
         }
+
         .colored-box {
             position: absolute;
             height: 10rem;
-            width: 50%;//20rem;
+            width: 50%; //20rem;
             z-index: -1;
             @media screen and (max-width: $screen-small - 1px) {
                 height: 5rem;
                 width: 50%;
             }
+
             &.yellow {
                 background-color: $yellow2;
+
                 &:nth-of-type(2) {
                     left: 0;
                     bottom: 2rem;
                 }
+
                 &:nth-of-type(4) {
                     right: 0;
                     top: 2rem;
                 }
             }
+
             &.blue {
                 background-color: $lightblue1;
+
                 &:nth-of-type(1) {
                     left: -2rem;
                     bottom: 0;
                 }
+
                 &:nth-of-type(3) {
                     right: -2rem;
                     top: 0;
                 }
             }
         }
+
         img {
             width: 100%;
             object-fit: cover;
             border-radius: 50%;
             z-index: 2;
         }
+
         .form-section {
             z-index: 2;
             //noinspection CssReplaceWithShorthandSafely
@@ -128,12 +149,14 @@ body {
                 text-transform: uppercase;
                 font-family: $font-bold;
             }
+
             #gjurmo {
                 height: unset;
                 padding: $input-padding;
                 padding-right: 5rem;
                 border-radius: $pill-radius;
             }
+
             input[type='submit'] {
                 position: absolute;
                 right: 0;
@@ -144,6 +167,7 @@ body {
                 background-color: $yellow1;
                 border: 2px solid $yellow1;
                 transition: border-color $transition-time $transition-function;
+
                 &:hover, &:focus {
                     border-color: $black;
                 }
@@ -151,10 +175,12 @@ body {
         }
 
     }
+
     .title-with-shapes {
         display: inline-block;
         z-index: 1;
         position: relative;
+
         .circle-yellow {
             background-color: $yellow2;
             z-index: -1;
@@ -166,6 +192,7 @@ body {
             top: 0;
             transform: translate(-30%, -30%);
         }
+
         h2 {
             font-family: $font-bold;
             color: $blue1;
@@ -179,12 +206,14 @@ body {
     [class*='col-'].z-indexed-div {
         z-index: 1;
     }
+
     .orange-card {
         height: 300px;
         width: 80%;
         margin: auto;
         position: relative;
         background-color: $orange1;
+
         &.circle-top::after, &.circle-bottom::after {
             @media screen and (max-width: $screen-medium - 1px) {
                 display: none;
@@ -197,11 +226,13 @@ body {
             z-index: -1;
             border-radius: 50%;
         }
+
         &.circle-top::after {
             left: 0;
             top: 0;
             transform: translate(-50%, -50%);
         }
+
         &.circle-bottom::after {
             right: 0;
             bottom: 0;
