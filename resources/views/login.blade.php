@@ -5,7 +5,6 @@
 @section('content')
     <div id="view-login">
         <div class="background-container">
-
             <div class="login-form-container">
                 <div class="container-fluid">
                     <div class="row">

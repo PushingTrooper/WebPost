@@ -46,3 +46,35 @@
     background-color: #FFE400;
     padding: 5px 5px 5px 5px;
 }
+
+/* CREATE NEW USER */
+#create-new-user .background-container {
+    display: flow-root;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-image: url("../images/create_user_background@2x.png");
+    background-size: cover;
+}
+
+#create-new-user .pick-user-container {
+    margin-top: 150px;
+}
+#create-new-user .pick-user-container h1 {
+    font-family: "Roboto Medium", sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+#create-new-user div .role {
+    display: flex;
+    background: #F8CD3F;
+    height: 200px;
+    margin: 25px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#create-new-user div .role p {
+
+}
