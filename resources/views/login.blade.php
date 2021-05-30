@@ -25,7 +25,7 @@
                             <div class="form-section">
                                 <label for="password">Fjalëkalim</label><br>
                                 <div id="password-div">
-                                    <img alt="email_icon" src="/icons/password.svg" class="input-icon" style="margin-top: 5px"/>
+                                    <img alt="email_icon" src="/icons/password.svg" class="input-icon" style="margin-top: 5px; scale: 1; margin-left: 9px;"/>
                                     <input type="password" id="password" class="form-control">
                                 </div>
                             </div>

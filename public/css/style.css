@@ -60,29 +60,6 @@ body {
   background-color: #f2f7f8;
 }
 
-#view-login .background-container {
-  display: flow-root;
-  min-height: 100vh;
-  min-width: 100vw;
-  background-image: url("/storage/images/login_background.png");
-  background-size: cover;
-}
-#view-login .login-form-container {
-  margin-top: 150px;
-}
-#view-login .login-form-container h1 {
-  font-family: "Roboto Medium", sans-serif;
-  text-transform: uppercase;
-  margin-bottom: 0;
-}
-#view-login .login-form-container .form-section {
-  margin-top: 2rem;
-}
-#view-login .login-form-container .form-section input {
-  height: 40px;
-  padding: 5px 5px 5px 40px;
-}
-
 #client-homepage {
   overflow: hidden;
   display: flow-root;

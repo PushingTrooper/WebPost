@@ -23,7 +23,7 @@ Route::get('/track', function () {
 });
 
 Route::get('/home', function () {
-    return view('client/homepage');
+    return view('client.homepage');
 })->name('home');
 
 Route::get('/login', function () {

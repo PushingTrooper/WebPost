@@ -1,0 +1,48 @@
+#view-login .login-form-container {
+    margin-top: 150px;
+}
+#view-login .login-form-container h1 {
+    font-family: "Roboto Medium", sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+#view-login .login-form-container .form-section {
+    margin-top: 2rem;
+}
+#view-login .login-form-container .form-section input {
+    height: 40px;
+    padding: 5px 5px 5px 40px;
+}
+
+#view-login .background-container {
+    display: flow-root;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-image: url("../images/background@2x-edited.png");
+    background-size: cover;
+}
+
+#view-login .login-form-container .form-section input {
+    height: 40px;
+    padding: 5px 5px 5px 55px;
+    box-shadow: 0 4px 5px 1px rgba(0, 0, 0, 0.24);
+    border-radius: 12px;
+}
+
+#view-login .input-icon {
+    position: absolute;
+    scale: 0.7;
+    z-index: 2;
+}
+
+#view-login .login-form-container .form-section label {
+    font-family: "Roboto Bold", sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+}
+
+#view-login .login-form-container .form-section input[type="button"] {
+    height: 40px;
+    background-color: #FFE400;
+    padding: 5px 5px 5px 5px;
+}

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/normalize.css') }}"/>
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/junis.css') }}"/>
     {{--  Scripts (defer)  --}}
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script> {{--  do not defer jQuery  --}}
     <script defer src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
