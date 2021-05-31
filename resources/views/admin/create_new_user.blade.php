@@ -94,7 +94,7 @@
                         <div class="form-section col-12 col-sm-12 col-md-12">
                             <label for="password">Fjalëkalimi</label><br>
                             <div id="password-div">
-                                <input type="text" id="password" class="form-control">
+                                <input type="password" id="password" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                         <div class="form-section col-12 col-sm-12 col-md-12">
                             <label for="confirm-password">Konfirmo Fjalëkalimi</label><br>
                             <div id="confirm-password-div">
-                                <input type="text" id="confirm-password" class="form-control">
+                                <input type="password" id="confirm-password" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -167,7 +167,7 @@
                         <div class="form-section col-12 col-sm-12 col-md-12">
                             <label for="password">Fjalëkalimi</label><br>
                             <div id="password-div">
-                                <input type="text" id="password" class="form-control">
+                                <input type="password" id="password" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -175,7 +175,7 @@
                         <div class="form-section col-12 col-sm-12 col-md-12">
                             <label for="confirm-password">Konfirmo Fjalëkalimi</label><br>
                             <div id="confirm-password-div">
-                                <input type="text" id="confirm-password" class="form-control">
+                                <input type="password" id="confirm-password" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -226,7 +226,7 @@
                         <div class="form-section col-12 col-sm-12 col-md-12">
                             <label for="password">Fjalëkalimi</label><br>
                             <div id="password-div">
-                                <input type="text" id="password" class="form-control">
+                                <input type="password" id="password" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -234,7 +234,7 @@
                         <div class="form-section col-12 col-sm-12 col-md-12">
                             <label for="confirm-password">Konfirmo Fjalëkalimi</label><br>
                             <div id="confirm-password-div">
-                                <input type="text" id="confirm-password" class="form-control">
+                                <input type="password" id="confirm-password" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -279,7 +279,7 @@
                         <div class="form-section col-12 col-sm-12 col-md-12">
                             <label for="password">Fjalëkalimi</label><br>
                             <div id="password-div">
-                                <input type="text" id="password" class="form-control">
+                                <input type="password" id="password" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -287,7 +287,7 @@
                         <div class="form-section col-12 col-sm-12 col-md-12">
                             <label for="confirm-password">Konfirmo Fjalëkalimi</label><br>
                             <div id="confirm-password-div">
-                                <input type="text" id="confirm-password" class="form-control">
+                                <input type="password" id="confirm-password" class="form-control">
                             </div>
                         </div>
                     </div>
