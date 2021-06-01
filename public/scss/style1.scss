@@ -1,0 +1,19 @@
+#create-new-user{
+.registerr{
+    height: 100vh;
+    padding-top: 70px;
+    background: white;
+}
+    .pick-user-container{
+        margin-top: 0;
+    }
+
+    .form-section:not(.row){
+        margin-bottom: 20px;
+        display: flow-root;
+    }
+
+    #login-button1{
+        margin-top: 10px;
+    }
+}
