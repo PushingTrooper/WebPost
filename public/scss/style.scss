@@ -11,6 +11,7 @@ body {
         display: flow-root;
         min-height: 100vh;
         min-width: 100vw;
+        //noinspection CssUnknownTarget
         background-image: url("/storage/images/login_background.png");
         background-size: cover;
     }
@@ -249,6 +250,7 @@ body {
     background-color: #e8ebed;
     min-width: 100%;
     min-height: 100%;
+    //noinspection CssUnknownTarget
     background-image: url("/storage/images/component7–4.png");
     background-size: cover;
     .form-section {
