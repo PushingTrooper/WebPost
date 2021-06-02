@@ -384,5 +384,29 @@ body {
   right: 0;
   transform: translateX(10%);
 }
+#admin-dashboard .stock-image-holder {
+  width: 35px;
+}
+#admin-dashboard .content-info-holder {
+  padding-left: 1rem;
+  width: calc(100% - 35px);
+}
+#admin-dashboard .content-info-holder p {
+  margin-bottom: 0.3rem;
+}
+#admin-dashboard .priority-type {
+  padding: 0.1em 0.7em;
+  border-radius: 6px;
+}
+#admin-dashboard .priority-type.green {
+  border: 1px solid #11ac20;
+  color: #11ac20;
+  background-color: rgba(30, 203, 64, 0.5);
+}
+#admin-dashboard .priority-type.red {
+  border: 1px solid #ff0000;
+  color: #ff0000;
+  background-color: rgba(255, 43, 43, 0.5);
+}
 
 /*# sourceMappingURL=style.css.map */

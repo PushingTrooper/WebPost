@@ -375,4 +375,28 @@ body {
             transform: translateX(10%);
         }
     }
+    .stock-image-holder {
+        width: 35px;
+    }
+    .content-info-holder {
+        padding-left: 1rem;
+        p {
+            margin-bottom: .3rem;
+        }
+        width: calc(100% - 35px);
+    }
+    .priority-type {
+        padding: $button-padding;
+        border-radius: $border-radius;
+        &.green {
+            border: 1px solid $green;
+            color: $green;
+            background-color: $lightgreen;
+        }
+        &.red {
+            border: 1px solid $red2;
+            color: $red2;
+            background-color: $lightred;
+        }
+    }
 }
