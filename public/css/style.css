@@ -337,4 +337,52 @@ body {
   width: 100%;
 }
 
+#admin-dashboard .button-logout {
+  background-color: transparent;
+  background-image: url("/storage/icons/user.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding: 0.1em 0.7em;
+  padding-left: 2rem;
+  border: 2px solid #000000;
+  border-radius: 6px;
+  transition: border-color 220ms cubic-bezier(0.63, 0, 0.37, 1);
+}
+#admin-dashboard .button-logout:hover, #admin-dashboard .button-logout:focus {
+  border-color: #ffe400;
+}
+#admin-dashboard .styled-header {
+  font-family: "Roboto Bold", sans-serif;
+  color: #437f97;
+  text-shadow: 4px 0 #000000;
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0 auto;
+  display: table;
+  z-index: 1;
+  position: relative;
+}
+#admin-dashboard .styled-header:before {
+  content: "";
+  height: 1.1em;
+  width: 1.1em;
+  border-radius: 50%;
+  background-color: #ffe400;
+  z-index: -1;
+  position: absolute;
+  transform: translateX(-30%);
+}
+#admin-dashboard .styled-header:after {
+  content: "";
+  height: 1em;
+  width: 2.2em;
+  background-color: #c5e9f0;
+  z-index: -1;
+  position: absolute;
+  right: 0;
+  transform: translateX(10%);
+}
+
 /*# sourceMappingURL=style.css.map */

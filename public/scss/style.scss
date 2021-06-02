@@ -325,3 +325,54 @@ body {
         width: 100%;
     }
 }
+
+#admin-dashboard {
+    .button-logout {
+        background-color: transparent;
+        //noinspection CssUnknownTarget
+        background-image: url("/storage/icons/user.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: left center;
+        padding: $button-padding;
+        padding-left: 2rem;
+        border: 2px solid $black;
+        border-radius: $border-radius;
+        transition: border-color $transition-time $transition-function;
+        &:hover, &:focus {
+            border-color: $yellow1;
+        }
+    }
+    .styled-header {
+        font-family: $font-bold;
+        color: $blue1;
+        text-shadow: 4px 0 $black;
+        text-align: center;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin: 0 auto;
+        display: table;
+        z-index: 1;
+        position: relative;
+        &:before {
+            content: "";
+            height: 1.1em;
+            width: 1.1em;
+            border-radius: 50%;
+            background-color: $yellow1;
+            z-index: -1;
+            position: absolute;
+            transform: translateX(-30%);
+        }
+        &:after {
+            content: "";
+            height: 1em;
+            width: 2.2em;
+            background-color: $lightblue1;
+            z-index: -1;
+            position: absolute;
+            right: 0;
+            transform: translateX(10%);
+        }
+    }
+}
