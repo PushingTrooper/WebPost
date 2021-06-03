@@ -209,9 +209,38 @@
 #edit-package .button-logout:hover, #edit-package .button-logout:focus {
   border-color: #ffe400;
 }
+#edit-package #comment {
+  height: unset;
+  padding: 0.2rem 0.7rem;
+  padding-right: 5rem;
+  border-radius: 16px;
+}
+#edit-package input[type=text] {
+  border-radius: 25px;
+}
+#edit-package select {
+  height: 37px;
+  border-radius: 25px;
+  border: 1px solid #CED4DA;
+  color: gray;
+  outline: none;
+  width: 49%;
+}
+#edit-package input[type=submit] {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 22px;
+  height: 37px;
+  border-radius: 16px;
+  padding: 0.1em 0.7em;
+  color: black;
+  background-color: #CED4DA;
+  border: 1px solid black;
+  transition: border-color 220ms cubic-bezier(0.63, 0, 0.37, 1);
+}
 #edit-package button.button-logout {
   position: relative;
-  left: -300px;
+  left: -220px;
   top: 50px;
 }
 

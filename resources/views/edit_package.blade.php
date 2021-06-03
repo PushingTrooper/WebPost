@@ -18,52 +18,71 @@
                     <table class="table tabela1">
                         <tbody>
                         <tr>
-                            <td class="left-side">Kodi i Pakos</td>
-                            <td class="right-side" colspan="2"> <input type="text" id="kodi" class="form-control"></td>
+                            <td class="left-side">Emri Marresit:</td>
+                            <td class="right-side" colspan="2"> <input type="text" id="emri" class="form-control w-50" placeholder="Ndrysho Emrin"></td>
                         </tr>
                         <tr>
-                            <td class="left-side">Vlera</td>
-                            <td class="right-side" colspan="2"> <input type="text" id="vlera" class="form-control"></td>
+                            <td class="left-side">Mbiemri Marresit</td>
+                            <td class="right-side" colspan="2"> <input type="text" id="mbiemri" class="form-control w-50" placeholder="Ndrysho Mbiemrin"></td>
                         </tr>
                         <tr>
-                            <td class="left-side">Pagesa</td>
-                            <td class="right-side" colspan="2"> <input type="text" id="pagesa" class="form-control"></td>
+                            <td class="left-side">Adresa Marresit:</td>
+                            <td class="right-side" colspan="2"> <input type="text" id="adresa" class="form-control w-50" placeholder="Ndrysho Adresa"></td>
                         </tr>
                         <tr>
-                            <td class="left-side">Marresi</td>
-                            <td class="right-side" colspan="2"> <input type="text" id="marresi" class="form-control"></td>
+                            <td class="left-side">Tipi:</td>
+                            <td class="right-side" colspan="2">
+                                <select name="cars" id="cars">
+                                    <option value="" disabled selected>Zgjidhni Tipin</option>
+                                    <option value="leter">Leter</option>
+                                    <option value="pako">Pako</option>
+                                </select>
+                                <select name="cars" id="cars">
+                                    <option value="" disabled selected>Zgjidhni Tipin</option>
+                                    <option value="leter">Leter</option>
+                                    <option value="pako">Pako</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
-                            <td class="left-side">Adresa e marresit</td>
-                            <td class="right-side" colspan="2"> <input type="text" id="adresa" class="form-control"></td>
+                            <td class="left-side">Prioriteti:</td>
+                            <td class="right-side" colspan="2"> <input type="text" id="prioriteti" class="form-control w-50" placeholder="Ndrysho Prioritetin"></td>
                         </tr>
                         <tr>
-                            <td class="left-side">Prioriteti</td>
-                            <td class="right-side" colspan="2"> <input type="text" id="prioriteti" class="form-control"></td>
+                            <td class="left-side">Qyteti:</td>
+                            <td class="right-side" colspan="2"> <input type="text" id="qyteti" class="form-control w-50" placeholder="Ndrysho Qytetin"></td>
                         </tr>
+
                         <tr>
-                            <td class="left-side">Qyteti</td>
-                            <td class="right-side" colspan="2"> <input type="text" id="qyteti" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <td class="left-side">Magazina</td>
+                            <td class="left-side">Magazina:</td>
                             <td class="right-side" colspan="2">Magazina 3</td>
                         </tr>
                         <tr>
-                            <td class="left-side">statusi Aktual</td>
+                            <td class="left-side">Vlera:</td>
+                            <td class="right-side" colspan="2">000 Lek</td>
+                        </tr>
+                        <tr>
+                            <td class="left-side">Pagesa:</td>
+                            <td class="right-side" colspan="2">E Kryer</td>
+                        </tr>
+                        <tr>
+                            <td class="left-side">Statusi Aktual:</td>
                             <td class="right-side" colspan="2">Ne Magazine</td>
                         </tr>
                         <tr>
-                            <td class="left-side">Perditesi,i fundit</td>
-                            <td class="right-side" colspan="2">30.05.2021 12:30:59</td>
+                            <td class="left-side">Perditesimi i Fundit:</td>
+                            <td class="right-side" colspan="2">23.01.2021 16:58</td>
                         </tr>
                         <tr>
-                            <td class="left-side">Perdoruesi qe Perditesoi Statusin</td>
+                            <td class="left-side">Perdoruessi qe Perditesoi Statusin:</td>
                             <td class="right-side" colspan="2">Emer Mbiemer</td>
                         </tr>
                         <tr>
-                            <td class="left-side">Koment</td>
-                            <td class="right-side" colspan="2">Koment</td>
+                            <td class="left-side">Koment:</td>
+                            <td class="right-side position-relative" colspan="2">
+                                <input type="text" id="comment" class="form-control">
+                                <input type="submit" id="koment" class="" value="Komento">
+                            </td>
                         </tr>
                         </tbody>
                     </table>

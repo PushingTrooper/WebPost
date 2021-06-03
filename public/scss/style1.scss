@@ -118,6 +118,7 @@
     background-image: url("/storage/images/package_detail_page.png");
     background-size: cover;
 
+
     .tabela1 {
     }
 
@@ -188,9 +189,43 @@
 
     }
 
+    #comment{
+        height: unset;
+        padding: $input-padding;
+        padding-right: 5rem;
+        border-radius: $pill-radius;
+    }
+
+
+    input[type='text']{
+        border-radius: 25px;
+    }
+
+    select{
+        height: 37px;
+        border-radius: 25px;
+        border: 1px solid #CED4DA;
+        color: gray;
+        outline: none;
+        width: 49%;
+    }
+
+    input[type='submit'] {
+        position: absolute;
+        right: .75rem;
+        bottom: 22px;
+        height: 37px;
+        border-radius: $pill-radius;
+        padding: $button-padding;
+        color: black;
+        background-color: #CED4DA;
+        border: 1px solid black;
+        transition: border-color $transition-time $transition-function;
+    }
+
     button.button-logout{
         position: relative;
-        left: -300px;
+        left: -220px;
         top: 50px;
     }
 }
