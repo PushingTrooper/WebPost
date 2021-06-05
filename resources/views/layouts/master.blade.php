@@ -22,7 +22,7 @@
 {{--  can @include() other partials  --}}
 <div id="content">
     <div id="loading-overlay-container" class="overlay inactive">
-        <h2>Rrufe: Loading...</h2>
+        <h2>Rrufe: Loading<span>...</span></h2>
         <div class="things">
             <div class="thing">
                 <div class="thing">

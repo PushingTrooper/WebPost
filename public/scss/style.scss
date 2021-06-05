@@ -23,6 +23,19 @@ body {
         h2 {
             color: $yellow1;
             text-shadow: 2px 0 $black;
+            font-size: 2em;
+            width: 250px;
+            margin-bottom: 1rem;
+            span {
+                display: inline-block;
+                width: 3ch;
+                letter-spacing: 8px;
+                animation: typing 2s steps(4) infinite;
+                white-space: nowrap;
+                overflow: hidden;
+                position: relative;
+                bottom: -10px;
+            }
         }
         .thing {
             display: flex;
@@ -44,7 +57,14 @@ body {
         transform: rotateZ(1turn);
     }
 }
-
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 3ch;
+    }
+}
 #view-login {
     .background-container {
         display: flow-root;
