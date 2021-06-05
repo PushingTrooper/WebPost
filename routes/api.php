@@ -26,6 +26,7 @@ Route::post('/getPackagesForUser', [ApiController::class, 'getPackagesForUser'])
 Route::post('/getPackageDetails', [ApiController::class, 'getPackageDetails']);
 Route::get('/getAllWarehouses', [ApiController::class, 'getAllWarehouses']);
 Route::post('/changeStatusOfPackage', [ApiController::class, 'changeStatusOfPackage']);
+Route::post('/createNewPackage', [ApiController::class, 'createNewPackage']);
 Route::post('/editPackage', [ApiController::class, 'editPackage']);
 Route::post('/reportLostPackage', [ApiController::class, 'reportLostPackage']);
 Route::post('/deletePackage', [ApiController::class, 'deletePackage']);

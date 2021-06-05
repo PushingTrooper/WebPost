@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use phpDocumentor\Reflection\Types\Object_;
 
 class ApiController extends Controller
@@ -248,12 +249,16 @@ class ApiController extends Controller
             $paySum = $request['pay'];
 
             $newReceiver = ['qytet_id' => $cityId, 'emer' => $rName, 'mbiemer' => $rSurname, 'adrese' => $rAddress];
-            $receiver = Marres::create($newReceiver);
+            $receiver = Marres::create($newReceiver)->latest()->first();
 
             $newPay = ['shuma' => $paySum, 'kryer' => 0, 'nga_derguesi' => 1, 'data_pagimit' => Carbon::now()];
-            $pay = Pagesa::create($newPay);
+            $pay = Pagesa::create($newPay)->latest()->first();
 
-            $newPackage = ['pagese_id' => $pay['pagese_id'], 'marres_id' => $receiver['marres_id']];
+            $newPackage = ['pagese_id' => $pay['pagese_id'], 'marres_id' => $receiver['marres_id'], 'gjurmim_id' => random_int(0, 746876), 'tipi' => $type,
+                'tipi_dergeses' => $priority, 'koment' => $comment];
+            Porosi::create($newPackage);
+
+            return response()->json(['success' => 'success', 'message' => 'Package created successfully'], 200);
 
         } else {
             return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
