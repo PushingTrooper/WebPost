@@ -4,6 +4,19 @@
 
 @section('content')
 
+    <style>
+        .edito {
+            background-color: transparent;
+        / / noinspection CssUnknownTarget background-image: url("/storage/icons/edit.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: left center;
+            padding: 4px;
+            padding-left: 2rem;
+        }
+
+    </style>
+
     <div id="package-details">
         <div class="container-fluid">
             <div class="row">
@@ -19,7 +32,8 @@
                     <tbody>
                     <tr>
                         <td class="left-side">Kodi i Pakos</td>
-                        <td class="right-side" colspan="2">Nr. 123456</td>
+                        <td class="right-side" colspan="2">Nr. 123456 <button class="float-right edito">Edito Detajet</button> </td>
+{{--                        <td class="right-side" colspan="2"><button class="float-right edito">Edito</button></td>--}}
                     </tr>
                     <tr>
                         <td class="left-side">Vlera</td>
