@@ -182,24 +182,26 @@ class ApiController extends Controller
 
                     $first_status = HistorikPorosi::where('porosi_id', $package['porosi_id'])
                         ->first(['perdorues_id']);
-                    $sender = Perdorues::where('perdorues_id', $first_status['perdorues_id'])
-                        ->first(['emri']);
+                    if($first_status!=null) {
+                        $sender = Perdorues::where('perdorues_id', $first_status['perdorues_id'])
+                            ->first(['emri']);
 
-                    $last_status_name = Status::where('status_id', $last_status['status_id'])
-                        ->first(['status_id', 'status']);
+                        $last_status_name = Status::where('status_id', $last_status['status_id'])
+                            ->first(['status_id', 'status']);
 
-                    $receiver = Marres::where('marres_id', $package['marres_id'])
-                        ->first(['emer', 'adrese']);
+                        $receiver = Marres::where('marres_id', $package['marres_id'])
+                            ->first(['emer', 'adrese']);
 
-                    $response = (object)[
-                        'tracking_code' => $package['gjurmim_id'],
-                        'last_status' => $last_status_name['status'],
-                        'last_updated' => $last_status['data_krijimit'],
-                        'receiver' => (object)['name' => $receiver['emer'], 'address' => $receiver['adrese']],
-                        'sender_name' => $sender['emri'],
-                        'package_priority' => $package['tipi_dergeses']
-                    ];
-                    $responses[] = $response;
+                        $response = (object)[
+                            'tracking_code' => $package['gjurmim_id'],
+                            'last_status' => $last_status_name['status'],
+                            'last_updated' => $last_status['data_krijimit'],
+                            'receiver' => (object)['name' => $receiver['emer'], 'address' => $receiver['adrese']],
+                            'sender_name' => $sender['emri'],
+                            'package_priority' => $package['tipi_dergeses']
+                        ];
+                        $responses[] = $response;
+                    }
                 }
 
 
@@ -282,7 +284,7 @@ class ApiController extends Controller
 
 
                 return response()->json([
-                    'coming_id' => $coming_in,
+                    'coming_in' => $coming_in,
                     'going_out' => $going_out
                 ], 200);
             } else {
@@ -418,7 +420,7 @@ class ApiController extends Controller
 
     public function createNewPackage(Request $request): JsonResponse {
         if($request->has(['type', 'package_priority', 'comment', 'receiver_name',
-            'receiver_surname', 'receiver_address', 'city_id', 'pay'])) {
+            'receiver_surname', 'receiver_address', 'city_id', 'pay', 'user_id'])) {
             $type = $request['type'];
             $priority = $request['package_priority'];
             $comment = $request['comment'];
@@ -427,6 +429,7 @@ class ApiController extends Controller
             $rAddress = $request['receiver_address'];
             $cityId = $request['city_id'];
             $paySum = $request['pay'];
+            $userId = $request['user_id'];
 
             $newReceiver = ['qytet_id' => $cityId, 'emer' => $rName, 'mbiemer' => $rSurname, 'adrese' => $rAddress];
             $receiver = Marres::create($newReceiver)->latest()->first();
@@ -436,7 +439,10 @@ class ApiController extends Controller
 
             $newPackage = ['pagese_id' => $pay['pagese_id'], 'marres_id' => $receiver['marres_id'], 'gjurmim_id' => random_int(0, 746876), 'tipi' => $type,
                 'tipi_dergeses' => $priority, 'koment' => $comment];
-            Porosi::create($newPackage);
+            $package = Porosi::create($newPackage)->latest()->first();
+
+            $newStory = ['porosi_id' => $package['porosi_id'], 'status_id' => 1, 'magazine_id' => 0, 'perdorues_id' => $userId, 'data_krijimit' => Carbon::now()];
+            HistorikPorosi::create($newStory);
 
             return response()->json(['success' => 'success', 'message' => 'Package created successfully'], 200);
 
