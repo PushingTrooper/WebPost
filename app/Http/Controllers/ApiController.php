@@ -29,7 +29,7 @@ class ApiController extends Controller
             $user = Perdorues::where('email', $request['email'])->where('password', $request['password'])->first();
 
             if ($user != null) {
-                return response()->json(['success' => 'success', 'message' => 'You have successfully logged in', 'role_id' => $user['rol_id']], 200);
+                return response()->json(['success' => 'success', 'message' => 'You have successfully logged in', 'role_id' => $user['rol_id'], 'user_id' => $user['perdorues_id']], 200);
             } else {
                 return response()->json(['success' => 'failed', 'message' => 'The email or password are incorrect!'], 403);
             }
@@ -230,6 +230,26 @@ class ApiController extends Controller
             } else {
                 return response()->json(['success' => 'failed', 'message' => 'This user does not exist'], 404);
             }
+        } else {
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
+        }
+    }
+
+    public function createNewPackage(Request $request): JsonResponse {
+        if($request->has(['type', 'package_priority', 'comment', 'receiver_name', 'receiver_surname', 'receiver_address', 'city_id'])) {
+            /*$type = $request['type'];
+            $priority = $request['package_priority'];
+            $comment = $request['comment'];
+            $rName = $request['receiver_name'];
+            $rSurname = $request['receiver_surname'];
+            $rAddress = $request['receiver_address'];
+            $cityId = $request['city_id'];
+
+            $newReceiver = ['qytet_id' => $cityId, 'emer' => $rName, 'mbiemer' => $rSurname, 'adrese' => $rAddress];
+            $receiver = Marres::create($newReceiver);
+
+            $newPackage = ['']*/
+
         } else {
             return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
         }

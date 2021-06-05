@@ -1,3 +1,5 @@
+let storage = window.localStorage
+
 function loginClick() {
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
@@ -11,10 +13,12 @@ function loginClick() {
             context: document.body,
             success: function(data, status, xhr){
                 message.style.visibility = "visible";
+                storage.setItem("userId", data.user_id)
 
                 switch (data.role_id) {
                     case 1: {
                         message.innerHTML = "Jeni loguar si admin!";
+                        window.location = "../admin"
                         break;
                     }
                     case 2: {
@@ -36,6 +40,7 @@ function loginClick() {
             error: function (jqXhr, textStatus, errorMessage) {
                 message.style.visibility = "visible";
                 message.innerHTML = jqXhr.responseJSON.message;
+                storage.removeItem("userId")
             }
         });
     }

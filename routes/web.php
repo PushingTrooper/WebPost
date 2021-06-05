@@ -22,9 +22,9 @@ Route::get('/track', function () {
     return view('tracking_page');
 });
 
-Route::get('/home', function () {
+/*Route::get('/home', function () {
     return view('client.homepage');
-})->name('home');
+})->name('home');*/
 
 Route::get('/login', function () {
     return view('login');
