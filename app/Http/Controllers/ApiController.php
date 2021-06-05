@@ -236,19 +236,24 @@ class ApiController extends Controller
     }
 
     public function createNewPackage(Request $request): JsonResponse {
-        if($request->has(['type', 'package_priority', 'comment', 'receiver_name', 'receiver_surname', 'receiver_address', 'city_id'])) {
-            /*$type = $request['type'];
+        if($request->has(['type', 'package_priority', 'comment', 'receiver_name',
+            'receiver_surname', 'receiver_address', 'city_id', 'pay'])) {
+            $type = $request['type'];
             $priority = $request['package_priority'];
             $comment = $request['comment'];
             $rName = $request['receiver_name'];
             $rSurname = $request['receiver_surname'];
             $rAddress = $request['receiver_address'];
             $cityId = $request['city_id'];
+            $paySum = $request['pay'];
 
             $newReceiver = ['qytet_id' => $cityId, 'emer' => $rName, 'mbiemer' => $rSurname, 'adrese' => $rAddress];
             $receiver = Marres::create($newReceiver);
 
-            $newPackage = ['']*/
+            $newPay = ['shuma' => $paySum, 'kryer' => 0, 'nga_derguesi' => 1, 'data_pagimit' => Carbon::now()];
+            $pay = Pagesa::create($newPay);
+
+            $newPackage = ['pagese_id' => $pay['pagese_id'], 'marres_id'];
 
         } else {
             return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);

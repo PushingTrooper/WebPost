@@ -1,0 +1,231 @@
+@import "variables";
+@import "fonts";
+
+#create-new-user{
+.registerr{
+    height: 100vh;
+    padding-top: 70px;
+    background: white;
+}
+    .pick-user-container{
+        margin-top: 0;
+    }
+
+    .form-section:not(.row){
+        margin-bottom: 20px;
+        display: flow-root;
+    }
+
+    #login-button1{
+        margin-top: 10px;
+    }
+}
+
+#package-details{
+    overflow: hidden;
+    display: flow-root;
+    background-color: #e8ebed;
+    min-width: 100%;
+    min-height: 100%;
+    //noinspection CssUnknownTarget
+    background-image: url("/storage/images/package_detail_page.png");
+    background-size: cover;
+
+    .tabela1 {
+    }
+
+    .rrethim {
+        border-radius: 8px;
+        overflow: hidden;
+        margin-top: 200px;
+        width: 70%;
+        @media screen and (max-width: $screen-small - 1px) {
+            width: 100%;
+        }
+    }
+
+    .left-side {
+        background-color: #FEE301;
+        padding-top: 22px;
+        padding-bottom: 22px;
+        font-weight: bold;
+    }
+
+    .right-side {
+        background-color: #F0F7FF;
+        padding-top: 22px;
+        padding-bottom: 22px;
+        font-weight: bold;
+    }
+
+    table tr:first-child th:first-child {
+        border-top-left-radius: 6px;
+    }
+
+    /* top-right border-radius */
+    table tr:first-child th:last-child {
+        border-top-right-radius: 6px;
+    }
+
+    /* bottom-left border-radius */
+    table tr:last-child td:first-child {
+        border-bottom-left-radius: 6px;
+    }
+
+    /* bottom-right border-radius */
+    table tr:last-child td:last-child {
+        border-bottom-right-radius: 6px;
+    }
+
+    tr {
+        border-bottom-style: hidden !important;
+        border-top-style: hidden !important;
+    }
+
+    .button-logout {
+        background-color: transparent;
+        //noinspection CssUnknownTarget
+        background-image: url("/storage/icons/user.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: left center;
+        padding: $button-padding;
+        padding-left: 2rem;
+        border: 2px solid $black;
+        border-radius: $border-radius;
+        transition: border-color $transition-time $transition-function;
+
+        &:hover, &:focus {
+            border-color: $yellow1;
+        }
+
+    }
+
+    button.button-logout{
+        position: relative;
+        left: -300px;
+        top: 50px;
+    }
+}
+
+#edit-package{
+    overflow: hidden;
+    display: flow-root;
+    background-color: #e8ebed;
+    min-width: 100%;
+    min-height: 100%;
+    //noinspection CssUnknownTarget
+    background-image: url("/storage/images/package_detail_page.png");
+    background-size: cover;
+
+
+    .tabela1 {
+    }
+
+    .rrethim {
+        border-radius: 8px;
+        overflow: hidden;
+        margin-top: 200px;
+        width: 80%;
+        @media screen and (max-width: $screen-small - 1px) {
+            width: 100%;
+        }
+    }
+
+    .left-side {
+        background-color: #FEE301;
+        padding-top: 22px;
+        padding-bottom: 22px;
+        font-weight: bold;
+    }
+
+    .right-side {
+        background-color: #F0F7FF;
+        padding-top: 22px;
+        padding-bottom: 22px;
+        font-weight: bold;
+    }
+
+    table tr:first-child th:first-child {
+        border-top-left-radius: 6px;
+    }
+
+    /* top-right border-radius */
+    table tr:first-child th:last-child {
+        border-top-right-radius: 6px;
+    }
+
+    /* bottom-left border-radius */
+    table tr:last-child td:first-child {
+        border-bottom-left-radius: 6px;
+    }
+
+    /* bottom-right border-radius */
+    table tr:last-child td:last-child {
+        border-bottom-right-radius: 6px;
+    }
+
+    tr {
+        border-bottom-style: hidden !important;
+        border-top-style: hidden !important;
+    }
+
+    .button-logout {
+        background-color: transparent;
+        //noinspection CssUnknownTarget
+        background-image: url("/storage/icons/user.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: left center;
+        padding: $button-padding;
+        padding-left: 2rem;
+        border: 2px solid $black;
+        border-radius: $border-radius;
+        transition: border-color $transition-time $transition-function;
+
+        &:hover, &:focus {
+            border-color: $yellow1;
+        }
+
+    }
+
+    #comment{
+        height: unset;
+        padding: $input-padding;
+        padding-right: 5rem;
+        border-radius: $pill-radius;
+    }
+
+
+    input[type='text']{
+        border-radius: 25px;
+    }
+
+    select{
+        height: 37px;
+        border-radius: 25px;
+        border: 1px solid #CED4DA;
+        color: gray;
+        outline: none;
+        width: 49%;
+    }
+
+    input[type='submit'] {
+        position: absolute;
+        right: .75rem;
+        bottom: 22px;
+        height: 37px;
+        border-radius: $pill-radius;
+        padding: $button-padding;
+        color: black;
+        background-color: #CED4DA;
+        border: 1px solid black;
+        transition: border-color $transition-time $transition-function;
+    }
+
+    button.button-logout{
+        position: relative;
+        left: -220px;
+        top: 50px;
+    }
+}
