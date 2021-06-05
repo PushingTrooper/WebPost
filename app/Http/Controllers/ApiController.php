@@ -253,7 +253,7 @@ class ApiController extends Controller
             $newPay = ['shuma' => $paySum, 'kryer' => 0, 'nga_derguesi' => 1, 'data_pagimit' => Carbon::now()];
             $pay = Pagesa::create($newPay);
 
-            $newPackage = ['pagese_id' => $pay['pagese_id'], 'marres_id'];
+            $newPackage = ['pagese_id' => $pay['pagese_id'], 'marres_id' => $receiver['marres_id']];
 
         } else {
             return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);

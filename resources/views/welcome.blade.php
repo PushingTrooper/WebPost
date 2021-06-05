@@ -6,7 +6,7 @@
     <div id="client-homepage">
         <div class="container-fluid">
             <div class="row title-bar">
-                <a href="{{route('home')}}"><img src="{{asset("storage/images/logo.png")}}" alt="Rrufe"></a>
+                <a href="#"><img src="{{asset("storage/images/logo.png")}}" alt="Rrufe"></a>
                 <div class="button-container">
                     <button class="kycu">Kyçu</button>
                     <button class="regjistrohu">Regjistrohu</button>
@@ -16,7 +16,6 @@
         <div class="container-fluid">
             <div class="row gjurmo-form-container">
                 <div class="col-10 offset-1 offset-md-0 col-md-6 d-flex align-items-center justify-content-center mb-5 mt-5">
-                    <?php Form::open(['method' => 'POST', 'route' => 'home']) ?>
                     <div class="form-section position-relative">
                         <h3>Kjo eshte faqja jone postare<br>hihihi hahaah uuu</h3>
                         <label for="gjurmo"></label>
