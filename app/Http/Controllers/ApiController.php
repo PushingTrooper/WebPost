@@ -214,6 +214,85 @@ class ApiController extends Controller
         }
     }
 
+    public function getLogistics(Request $request): JsonResponse
+    {
+        if ($request->has('user_id', 'warehouse_id')) {
+            $user = Perdorues::where('perdorues_id', $request['user_id'])->first();
+            $warehouseId = $request['warehouse_id'];
+            if ($user['rol_id'] != 4) {
+                $packages = Porosi::all('porosi_id',
+                    'gjurmim_id',
+                    'pagese_id',
+                    'marres_id',
+                    'tipi_dergeses');
+
+                $coming_in = array();
+                $going_out = array();
+
+                foreach ($packages as $package) {
+                    $last_status = HistorikPorosi::where(['porosi_id' => $package['porosi_id'], 'magazine_id' => $warehouseId])
+                        ->latest('data_krijimit')->first(['status_id', 'data_krijimit']);
+                    if($last_status!=null) {
+                        if($last_status['status_id'] == 4 && Carbon::parse($last_status['data_krijimit']) >= Carbon::now()->subDay()) {
+                            $first_status = HistorikPorosi::where('porosi_id', $package['porosi_id'])
+                                ->first(['perdorues_id']);
+                            $sender = Perdorues::where('perdorues_id', $first_status['perdorues_id'])
+                                ->first(['emri']);
+
+                            $last_status_name = Status::where('status_id', $last_status['status_id'])
+                                ->first(['status_id', 'status']);
+
+                            $receiver = Marres::where('marres_id', $package['marres_id'])
+                                ->first(['emer', 'adrese']);
+
+                            $response = (object)[
+                                'tracking_code' => $package['gjurmim_id'],
+                                'last_status' => $last_status_name['status'],
+                                'last_updated' => $last_status['data_krijimit'],
+                                'receiver' => (object)['name' => $receiver['emer'], 'address' => $receiver['adrese']],
+                                'sender_name' => $sender['emri'],
+                                'package_priority' => $package['tipi_dergeses']
+                            ];
+                            $coming_in[] = $response;
+                        } else if(($last_status['status_id'] == 3 || $last_status['status_id'] == 5) && Carbon::parse($last_status['data_krijimit']) >= Carbon::now()->subDay()) {
+                            $first_status = HistorikPorosi::where('porosi_id', $package['porosi_id'])
+                                ->first(['perdorues_id']);
+                            $sender = Perdorues::where('perdorues_id', $first_status['perdorues_id'])
+                                ->first(['emri']);
+
+                            $last_status_name = Status::where('status_id', $last_status['status_id'])
+                                ->first(['status_id', 'status']);
+
+                            $receiver = Marres::where('marres_id', $package['marres_id'])
+                                ->first(['emer', 'adrese']);
+
+                            $response = (object)[
+                                'tracking_code' => $package['gjurmim_id'],
+                                'last_status' => $last_status_name['status'],
+                                'last_updated' => $last_status['data_krijimit'],
+                                'receiver' => (object)['name' => $receiver['emer'], 'address' => $receiver['adrese']],
+                                'sender_name' => $sender['emri'],
+                                'package_priority' => $package['tipi_dergeses']
+                            ];
+                            $going_out[] = $response;
+                        }
+                    }
+                }
+
+
+                return response()->json([
+                    'coming_id' => $coming_in,
+                    'going_out' => $going_out
+                ], 200);
+            } else {
+                return response()->json(['success' => 'failed', 'message' => 'Permission denied'], 403);
+            }
+
+        } else {
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
+        }
+    }
+
     public function getPackageDetails(Request $request): JsonResponse
     {
         if ($request->has('tracking_code')) {
