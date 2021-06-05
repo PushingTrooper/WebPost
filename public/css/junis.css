@@ -68,13 +68,55 @@
 #create-new-user div .role {
     display: flex;
     background: #F8CD3F;
-    height: 200px;
+    height: 250px;
     margin: 25px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    cursor: pointer;
 }
 
 #create-new-user div .role p {
+    font-family: "Roboto Bold", sans-serif;
+    color: #F5F5F1;
+}
 
+#create-new-user .fields-container {
+    height: 100%;
+    background-color: #FDFDFD;
+    float: right;
+}
+
+#create-new-user .form-section input {
+    height: 40px;
+    padding: 5px 5px 5px 15px;
+    box-shadow: 0 4px 5px 1px rgba(0, 0, 0, 0.24);
+    border-radius: 12px;
+}
+
+#create-new-user .form-section input[type="button"] {
+    height: 40px;
+    background-color: #FFE400;
+    padding: 5px 5px 5px 5px;
+    margin-top: 15px;
+}
+
+#create-new-user .input-icon {
+    position: absolute;
+    scale: 0.7;
+    z-index: 2;
+}
+
+#create-new-user .form-section label {
+    font-family: "Roboto Bold", sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+    margin-top: 15px;
+}
+
+#create-new-user #role-container .title {
+    font-family: "Roboto Bold", sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+    font-size: 40px;
 }

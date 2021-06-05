@@ -38,15 +38,18 @@
 {{--                        </div>--}}
 
                                 <div class="row">
-                                    <h1 class="float-right">Regjistrohu</h1>
-                                    <select class="role1">
+                                    <div class="float-left">
+                                    <h1>Regjistrohu</h1>
+                                       </div>
+                                    <div class="float-right">
+                                    <select class="rolet1">
                                         <option value="admin">Admin</option>
                                         <option value="user">User</option>
                                         <option value="magazinier">Magazinier</option>
                                         <option value="postier">Postier</option>
                                     </select>
+                                    </div>
                                 </div>
-                    </div>
                 </div>
             </div>
         </div>
