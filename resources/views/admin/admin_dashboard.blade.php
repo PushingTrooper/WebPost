@@ -6,7 +6,7 @@
     <style>
         .sidebar-container {
             position: fixed;
-            width: 220px;
+            width: 270px;
             height: 100%;
             left: 0;
             overflow-x: hidden;
@@ -95,47 +95,42 @@
             Admin
         </div>
         <ul class="sidebar-navigation">
-            <li class="header">gje</li>
+            <li class="header">Seksioni i pare</li>
             <li>
                 <a href="#">
-                    <i class="fa fa-home" aria-hidden="true"></i> Homepage
+                    <i class="fa fa-home" aria-hidden="true"></i>Ndrysho Fjalekalim
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
+                    <i class="fa fa-tachometer" aria-hidden="true"></i> Krijo Perdorues
                 </a>
             </li>
-            <li class="header">gje1</li>
+            <li class="header">Seksioni i dyte</li>
             <li>
                 <a href="#">
-                    <i class="fa fa-users" aria-hidden="true"></i> Friends
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-cog" aria-hidden="true"></i> Settings
+                    <i class="fa fa-users" aria-hidden="true"></i> Lista e pakove
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i class="fa fa-info-circle" aria-hidden="true"></i> Information
+                    <i class="fa fa-cog" aria-hidden="true"></i> Vendndodhja e postiereve
                 </a>
             </li>
         </ul>
     </div>
     <div>
-        <div class="container-fluid">
-            <div class="row ml-3 mt-2 mb-3" id="p-title-top">
-                <div class="col-sm-12">
-                    <h1 class="page-title-f">Dashboard</h1>
-                </div>
-            </div>
+{{--        <div class="container-fluid">--}}
+{{--            <div class="row ml-3 mt-2 mb-3" id="p-title-top">--}}
+{{--                <div class="col-sm-12">--}}
+{{--                    <h1 class="page-title-f">Dashboard</h1>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-            <hr class="hr-line">
+{{--            <hr class="hr-line">--}}
         </div>
         <div class="container-fluid">
-            <div class="row" id="dashboard-f">
+            <div class="row" id="dashboard-f" style="margin-left: 300px; margin-top: 40px; margin-right: 40px">
                 <div class="col-sm-3 rw-d">
                     <h3>Totali i dërgesave në statuset</h3>
 
