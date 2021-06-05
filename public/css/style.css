@@ -337,7 +337,7 @@ body {
   width: 100%;
 }
 
-#admin-dashboard .button-logout {
+#packages-list .button-logout {
   background-color: transparent;
   background-image: url("/storage/icons/user.png");
   background-size: contain;
@@ -349,10 +349,10 @@ body {
   border-radius: 6px;
   transition: border-color 220ms cubic-bezier(0.63, 0, 0.37, 1);
 }
-#admin-dashboard .button-logout:hover, #admin-dashboard .button-logout:focus {
+#packages-list .button-logout:hover, #packages-list .button-logout:focus {
   border-color: #ffe400;
 }
-#admin-dashboard .styled-header {
+#packages-list .styled-header {
   font-family: "Roboto Bold", sans-serif;
   color: #437f97;
   text-shadow: 4px 0 #000000;
@@ -364,7 +364,7 @@ body {
   z-index: 1;
   position: relative;
 }
-#admin-dashboard .styled-header:before {
+#packages-list .styled-header:before {
   content: "";
   height: 1.1em;
   width: 1.1em;
@@ -374,7 +374,7 @@ body {
   position: absolute;
   transform: translateX(-30%);
 }
-#admin-dashboard .styled-header:after {
+#packages-list .styled-header:after {
   content: "";
   height: 1em;
   width: 2.2em;
@@ -384,29 +384,318 @@ body {
   right: 0;
   transform: translateX(10%);
 }
-#admin-dashboard .stock-image-holder {
+#packages-list .stock-image-holder {
   width: 35px;
 }
-#admin-dashboard .content-info-holder {
+#packages-list .content-info-holder {
   padding-left: 1rem;
   width: calc(100% - 35px);
 }
-#admin-dashboard .content-info-holder p {
+#packages-list .content-info-holder p {
   margin-bottom: 0.3rem;
 }
-#admin-dashboard .priority-type {
+#packages-list .priority-type {
   padding: 0.1em 0.7em;
   border-radius: 6px;
 }
-#admin-dashboard .priority-type.green {
+#packages-list .priority-type.green {
   border: 1px solid #11ac20;
   color: #11ac20;
   background-color: rgba(30, 203, 64, 0.5);
 }
-#admin-dashboard .priority-type.red {
+#packages-list .priority-type.red {
   border: 1px solid #ff0000;
   color: #ff0000;
   background-color: rgba(255, 43, 43, 0.5);
+}
+
+#admin-dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  /*Totali i Punonjësve në Pozicionet , dashboard */
+  /*Totali i Dërgesave në Prioritet , dashboard */
+  /*Totali i Dërgesave në Tipet , dashboard */
+  /*Klientët me numrin më të lartë të dërgesave , dashboard*/
+  /*Klientët më me Shumë Ulje , dashboard*/
+  /* operator input autocompletes*/
+  /*download pdf modal*/
+}
+#admin-dashboard .col-sm-3 {
+  margin-top: 1rem;
+}
+#admin-dashboard .col-sm-3:not(:last-of-type) {
+  margin-right: 1%;
+}
+#admin-dashboard .col-sm-3:first-of-type {
+  margin-left: 0.5%;
+}
+#admin-dashboard .rw-d {
+  background-color: #fff;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #e1e4ea;
+  padding: 18px 18px 18px 18px;
+  margin-bottom: 15px;
+}
+#admin-dashboard .rw-d h3 {
+  color: #2d4665;
+  font-size: 19px;
+  letter-spacing: 0.3px;
+}
+#admin-dashboard .col-sm-3 {
+  /*flex: 0 0 24.5%;*/
+  max-width: 24% !important;
+}
+@media screen and (max-width: 767px) {
+  #admin-dashboard .col-sm-3.rw-d, #admin-dashboard .col-sm-3.right-col-df {
+    flex: unset;
+    max-width: 99% !important;
+  }
+}
+#admin-dashboard .col-list-f {
+  display: flex;
+  background-color: #e4f9fc;
+  padding: 10px 14px 10px 14px;
+  margin-top: 15px;
+}
+#admin-dashboard .col-list-f:first-of-type {
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+  margin-top: 20px;
+}
+#admin-dashboard .col-list-f:last-of-type {
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+}
+#admin-dashboard .col-list-f p {
+  margin: 0;
+  color: #1f1f26;
+  letter-spacing: 0.5px;
+}
+#admin-dashboard img.d-icon {
+  display: block;
+  /*max-width: 20px;*/
+  margin: 0 auto;
+  /*padding-top: 4px;*/
+}
+#admin-dashboard .col-list-f > div:first-child {
+  background-color: #fff;
+  width: 10%;
+  border-radius: 8px;
+  max-height: 30px;
+}
+#admin-dashboard .col-list-f > div:nth-child(2) p {
+  padding-left: 20px;
+}
+#admin-dashboard .col-list-f > div:nth-child(2) {
+  width: 70%;
+}
+#admin-dashboard .col-list-f > div:last-child {
+  width: 20%;
+}
+#admin-dashboard .col-list-f > div:last-child {
+  float: right;
+  text-align: right;
+  border-left: 1px solid #bfd0e4;
+}
+#admin-dashboard div#employee .col.col-list-f {
+  background-color: #eef9f2;
+}
+#admin-dashboard div#priority .col.col-list-f {
+  background-color: #f0edfd;
+}
+#admin-dashboard div#order_type .col.col-list-f {
+  background-color: #e1e9f5;
+}
+#admin-dashboard div#max_orders_clients .col.col-list-f {
+  background-color: #dde5fc;
+}
+#admin-dashboard div#max_discounts .col.col-list-f {
+  background-color: #f1f6fb;
+}
+#admin-dashboard .col.col-list-f.all-end {
+  width: 100% !important;
+}
+#admin-dashboard .col.col-list-f.all-end p {
+  margin: auto 0 auto auto;
+}
+#admin-dashboard .col-sm-3.right-col-df {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+#admin-dashboard label#instock-label {
+  height: 50px;
+  padding-left: 40px;
+  padding-top: 11px;
+  border-radius: 30px;
+  border: 1px solid #dee6ef;
+  color: #30527b;
+  outline: none;
+  box-shadow: none;
+  background-color: #ffffff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 100%;
+}
+#admin-dashboard div#btn-export {
+  color: #ffffff;
+  outline: none;
+  transition: 0.2s;
+  background-color: #85a1c4 !important;
+}
+#admin-dashboard div#btn-export:hover {
+  background-color: #84e0be !important;
+}
+#admin-dashboard .copy-tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+#admin-dashboard .copy-tooltip .copy-tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #606060;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 120%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+#admin-dashboard .copy-tooltip .copy-tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #606060 transparent transparent transparent;
+}
+#admin-dashboard .copy-tooltip:hover .copy-tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+#admin-dashboard .easy-autocomplete div#eac-container-sender_personal_number {
+  overflow: auto;
+  max-height: 455px;
+  /* overflow-x: hidden; */
+  z-index: 999;
+  border: none !important;
+  margin: 0;
+  /* padding: 6px 6px 6px 6px; */
+  padding: 0;
+  list-style: none;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 0px 1px rgba(0, 0, 0, 0), 0 4px 13px rgba(0, 0, 0, 0.12);
+}
+#admin-dashboard .easy-autocomplete li {
+  margin: 0;
+  padding: 5px 0;
+  text-indent: 15px;
+  -moz-transition: all 0.15s ease-in;
+  -o-transition: all 0.15s ease-in;
+  -webkit-transition: all 0.15s ease-in;
+  transition: all 0.15s ease-in;
+  cursor: pointer;
+}
+#admin-dashboard .easy-autocomplete ul {
+  margin-bottom: 0px;
+}
+#admin-dashboard #modal-printPD-f .modal {
+  background-color: #003e6fe3;
+}
+#admin-dashboard #modal-printPD-f .modal-content {
+  border: none;
+  box-shadow: none;
+  border-radius: 10px;
+}
+#admin-dashboard #modal-printPD-f h5#order-del-title {
+  text-align: center;
+  padding-top: 22px;
+  font-size: 27px;
+}
+#admin-dashboard #modal-printPD-f p.del-modal-desc {
+  text-align: center;
+  padding: 15px 40px 15px 40px;
+  color: #85a1c4;
+}
+#admin-dashboard #modal-printPD-f .modal-footer-button {
+  display: block;
+  margin: 0 auto;
+}
+#admin-dashboard #modal-printPD-f button.cancel-btn-pdf {
+  padding: 10px 49px 10px 49px;
+  border: 1px solid #85a1c4;
+  margin: 0px 20px 22px 20px;
+  color: #85a1c4;
+  border-radius: 33px;
+  outline: none;
+  transition: 0.2s;
+}
+#admin-dashboard #modal-printPD-f button.download-btn-pdf {
+  padding: 6px 40px 6px 40px;
+  border: 1px solid #85a1c4;
+  margin: 0px 20px 22px 20px;
+  color: #85a1c4;
+  border-radius: 33px;
+  outline: none;
+  transition: 0.2s;
+}
+#admin-dashboard #modal-printPD-f button.cancel-btn-pdf:hover {
+  background-color: red;
+  border: 1px solid red;
+  color: #fff;
+}
+#admin-dashboard #modal-printPD-f button.download-btn-pdf:hover {
+  background-color: red;
+  border: 1px solid red;
+  color: #fff;
+}
+#admin-dashboard .select-pdf-option {
+  display: flex;
+  justify-content: center;
+}
+#admin-dashboard .select-pdf-option .format {
+  width: 30%;
+}
+#admin-dashboard .select-pdf-option .type {
+  width: 30%;
+}
+#admin-dashboard .select-pdf-option .format label {
+  display: contents;
+}
+#admin-dashboard .select-pdf-option .type label {
+  display: contents;
+}
+#admin-dashboard .select-pdf-option .form-elt {
+  display: block !important;
+  flex-wrap: wrap;
+}
+#admin-dashboard input.excel-example-order {
+  letter-spacing: 0.3px;
+  display: flex;
+  padding: 10px 30px 10px 30px;
+  margin: 0px 20px 22px 20px;
+  color: #ffffff;
+  border-radius: 33px;
+  outline: none;
+  transition: 0.2s;
+  background-color: #84e0be;
+}
+#admin-dashboard input.excel-example-order:hover {
+  background-color: red;
 }
 
 /*# sourceMappingURL=style.css.map */
