@@ -3,7 +3,31 @@
 @section('pageTitle', 'Login')
 
 @section('content')
-{{--kot sa per push--}}
+
+<style>
+    .edito {
+        background-color: transparent;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: left center;
+        padding: 4px;
+        padding-left: 2rem;
+    }
+
+    .konfirmo{
+        background-color: #FEE301;
+        border-radius: 8px;
+        width: 80px;
+        height: 40px;
+        box-shadow: #7abaff;
+    }
+
+    #emri{
+        width: 70%;
+    }
+</style>
+
+
     <div id="edit-package">
         <div class="container-fluid">
             <div class="row">
@@ -19,7 +43,8 @@
                         <tbody>
                         <tr>
                             <td class="left-side">Emri Marresit:</td>
-                            <td class="right-side" colspan="2"> <input type="text" id="emri" class="form-control w-50" placeholder="Ndrysho Emrin"></td>
+                            <td class="right-side"> <input type="text" id="emri" class="form-control" placeholder="Ndrysho Emrin"></td>
+                            <td class="right-side"><button class="float-right konfirmo"><b>Konfirmo</b></button></td>
                         </tr>
                         <tr>
                             <td class="left-side">Mbiemri Marresit</td>
@@ -32,12 +57,7 @@
                         <tr>
                             <td class="left-side">Tipi:</td>
                             <td class="right-side" colspan="2">
-                                <select name="cars" id="cars">
-                                    <option value="" disabled selected>Zgjidhni Tipin</option>
-                                    <option value="leter">Leter</option>
-                                    <option value="pako">Pako</option>
-                                </select>
-                                <select name="cars" id="cars">
+                                <select name="gje" id="gje">
                                     <option value="" disabled selected>Zgjidhni Tipin</option>
                                     <option value="leter">Leter</option>
                                     <option value="pako">Pako</option>
@@ -46,7 +66,14 @@
                         </tr>
                         <tr>
                             <td class="left-side">Prioriteti:</td>
-                            <td class="right-side" colspan="2"> <input type="text" id="prioriteti" class="form-control w-50" placeholder="Ndrysho Prioritetin"></td>
+                            <td class="right-side" colspan="2">
+                                <select name="breh" id="eha">
+                                    <option value="" disabled selected>Zgjidhni Prioritetin</option>
+                                    <option value="leter">Ekspres</option>
+                                    <option value="pako">Normal</option>
+                                </select>
+                            </td>
+{{--                            <td class="right-side" colspan="2"> <input type="text" id="prioriteti" class="form-control w-50" placeholder="Ndrysho Prioritetin"></td>--}}
                         </tr>
                         <tr>
                             <td class="left-side">Qyteti:</td>

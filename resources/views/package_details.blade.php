@@ -7,7 +7,7 @@
     <style>
         .edito {
             background-color: transparent;
-        / / noinspection CssUnknownTarget background-image: url("/storage/icons/edit.svg");
+            background-image: url("/storage/icons/edit.svg");
             background-size: contain;
             background-repeat: no-repeat;
             background-position: left center;
