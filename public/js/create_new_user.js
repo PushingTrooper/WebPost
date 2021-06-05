@@ -65,3 +65,26 @@ function goBack() {
     adminContainer.style.display = "none";
     clientContainer.style.display = "none";
 }
+
+function changeRole(e) {
+    switch(e.selectedIndex) {
+        case 0: {
+            openAdmin();
+            break;
+        }
+        case 1: {
+            openPostman();
+            break;
+        }
+        case 2: {
+            openWarehouse();
+            break;
+        }
+        case 3: {
+            openClient();
+            break;
+        }
+
+    }
+    console.log("changed");
+}
