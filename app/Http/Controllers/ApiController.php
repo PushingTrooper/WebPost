@@ -8,6 +8,7 @@ use App\Models\Marres;
 use App\Models\Pagesa;
 use App\Models\Perdorues;
 use App\Models\Porosi;
+use App\Models\Qytet;
 use App\Models\Status;
 use App\Models\User;
 use Carbon\Carbon;
@@ -107,7 +108,7 @@ class ApiController extends Controller
             $surname = $request['surname'];
             $pay = $request['pay'];
             $warehouseId = $request['magazine_id'];
-            $cityId = $request['cityId'];
+            $cityId = $request['city_id'];
             $address = $request['address'];
 
             $user = Perdorues::where('email', $request['email'])->first();
@@ -265,6 +266,12 @@ class ApiController extends Controller
         } else {
             return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
         }
+    }
+
+    public function getAllCities(): JsonResponse
+    {
+        $cities = Qytet::all();
+        return response()->json(['cities' => $cities], 200);
     }
 
     public function getAllWarehouses(): JsonResponse

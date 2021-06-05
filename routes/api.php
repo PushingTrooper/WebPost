@@ -27,6 +27,7 @@ Route::post('/registerWarehouseman', [ApiController::class, 'registerWarehousema
 Route::post('/registerPostman', [ApiController::class, 'registerPostman']);
 Route::post('/getPackagesForUser', [ApiController::class, 'getPackagesForUser']);
 Route::post('/getPackageDetails', [ApiController::class, 'getPackageDetails']);
+Route::get('/getAllCities', [ApiController::class, 'getAllCities']);
 Route::get('/getAllWarehouses', [ApiController::class, 'getAllWarehouses']);
 Route::post('/changeStatusOfPackage', [ApiController::class, 'changeStatusOfPackage']);
 Route::post('/createNewPackage', [ApiController::class, 'createNewPackage']);

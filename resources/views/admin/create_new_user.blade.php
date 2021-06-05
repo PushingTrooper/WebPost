@@ -88,13 +88,13 @@
                                     <div class="form-section col-12 col-sm-6 col-md-6">
                                         <label for="city">Qyteti</label><br>
                                         <div id="city-div">
-                                            <input type="text" id="city" class="form-control">
+                                            <select id="city" class="form-control"></select>
                                         </div>
                                     </div>
                                     <div class="form-section col-12 col-sm-6 col-md-6">
                                         <label for="warehouse">Magazina</label><br>
                                         <div id="warehouse-div">
-                                            <input type="text" id="warehouse" class="form-control">
+                                            <select id="warehouse" class="form-control"></select>
                                         </div>
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@
                                             <div class="row">
                                                 <div class="form-section col-12 col-sm-12 col-md-12">
                                                     <input type="button" value="Konfirmo" class="form-control"
-                                                           id="login-button" onclick="loginClick()">
+                                                           id="login-button" onclick="registerWarehouseman()">
                                                 </div>
                                             </div>
                                         </div>
@@ -149,7 +149,7 @@
                                     <div class="form-section col-12 col-sm-6 col-md-6">
                                         <label for="city">Qyteti</label><br>
                                         <div id="city-div">
-                                            <input type="text" id="city" class="form-control">
+                                            <select id="city" class="form-control"></select>
                                         </div>
                                     </div>
                                     <div class="form-section col-12 col-sm-6 col-md-6">
@@ -194,7 +194,7 @@
                                 <div class="row">
                                     <div class="form-section col-12 col-sm-12 col-md-12">
                                         <input type="button" value="Konfirmo" class="form-control"
-                                               id="login-button" onclick="loginClick()">
+                                               id="login-button" onclick="registerPostman()">
                                     </div>
                                 </div>
                             </div>
@@ -254,7 +254,7 @@
                                 <div class="row">
                                     <div class="form-section col-12 col-sm-12 col-md-12">
                                         <input type="button" value="Konfirmo" class="form-control"
-                                               id="login-button" onclick="loginClick()">
+                                               id="login-button" onclick="registerAdmin()">
                                     </div>
                                 </div>
                             </div>
@@ -308,9 +308,12 @@
                                 <div class="row">
                                     <div class="form-section col-12 col-sm-12 col-md-12">
                                         <input type="button" value="Konfirmo" class="form-control"
-                                               id="login-button" onclick="loginClick()">
+                                               id="login-button" onclick="registerClient()">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="form-section">
+                                <div id="request-message" style="visibility: hidden;"></div>
                             </div>
                         </div>
                     </div>

@@ -219,12 +219,12 @@
   border-radius: 25px;
 }
 #edit-package select {
-  height: 37px;
+  height: 40px;
   border-radius: 25px;
   border: 1px solid #CED4DA;
   color: gray;
   outline: none;
-  width: 49%;
+  width: 50%;
 }
 #edit-package input[type=submit] {
   position: absolute;
