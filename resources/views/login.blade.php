@@ -42,6 +42,5 @@
 
         </div>
     </div>
-    <script src="{{asset('/js/login.js')}}"></script>
 @endsection
-
+<script src="{{asset('/js/login.js')}}"></script>

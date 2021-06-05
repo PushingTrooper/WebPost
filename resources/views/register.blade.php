@@ -61,5 +61,5 @@
 
         </div>
     </div>
-    <script src="{{asset('/js/register.js')}}"></script>
 @endsection
+<script src="{{asset('/js/register.js')}}"></script>
