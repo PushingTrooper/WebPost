@@ -61,6 +61,43 @@ body {
   background-color: #f2f7f8;
 }
 
+.overlay.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  background-color: #437f97;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.overlay.active h2 {
+  color: #ffe400;
+  text-shadow: 2px 0 #000000;
+}
+.overlay.active .thing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1px;
+  border: 10px solid transparent;
+  border-color: #ffe400 transparent transparent #ffe400;
+  border-radius: 50%;
+  animation: thing 5s cubic-bezier(0.35, -0.14, 0.79, 1.22) infinite;
+}
+.overlay.inactive {
+  display: none;
+}
+
+@keyframes thing {
+  100% {
+    transform: rotateZ(1turn);
+  }
+}
 #view-login .background-container {
   display: flow-root;
   min-height: 100vh;
@@ -337,7 +374,7 @@ body {
   width: 100%;
 }
 
-#packages-list .button-logout {
+#logistics-page .button-logout {
   background-color: transparent;
   background-image: url("/storage/icons/user.png");
   background-size: contain;
@@ -349,10 +386,10 @@ body {
   border-radius: 6px;
   transition: border-color 220ms cubic-bezier(0.63, 0, 0.37, 1);
 }
-#packages-list .button-logout:hover, #packages-list .button-logout:focus {
+#logistics-page .button-logout:hover, #logistics-page .button-logout:focus {
   border-color: #ffe400;
 }
-#packages-list .styled-header {
+#logistics-page .styled-header {
   font-family: "Roboto Bold", sans-serif;
   color: #437f97;
   text-shadow: 4px 0 #000000;
@@ -364,7 +401,7 @@ body {
   z-index: 1;
   position: relative;
 }
-#packages-list .styled-header:before {
+#logistics-page .styled-header:before {
   content: "";
   height: 1.1em;
   width: 1.1em;
@@ -374,7 +411,7 @@ body {
   position: absolute;
   transform: translateX(-30%);
 }
-#packages-list .styled-header:after {
+#logistics-page .styled-header:after {
   content: "";
   height: 1em;
   width: 2.2em;
@@ -384,26 +421,26 @@ body {
   right: 0;
   transform: translateX(10%);
 }
-#packages-list .stock-image-holder {
+#logistics-page .stock-image-holder {
   width: 35px;
 }
-#packages-list .content-info-holder {
+#logistics-page .content-info-holder {
   padding-left: 1rem;
   width: calc(100% - 35px);
 }
-#packages-list .content-info-holder p {
+#logistics-page .content-info-holder p {
   margin-bottom: 0.3rem;
 }
-#packages-list .priority-type {
+#logistics-page .priority-type {
   padding: 0.1em 0.7em;
   border-radius: 6px;
 }
-#packages-list .priority-type.green {
+#logistics-page .priority-type.green {
   border: 1px solid #11ac20;
   color: #11ac20;
   background-color: rgba(30, 203, 64, 0.5);
 }
-#packages-list .priority-type.red {
+#logistics-page .priority-type.red {
   border: 1px solid #ff0000;
   color: #ff0000;
   background-color: rgba(255, 43, 43, 0.5);
@@ -696,6 +733,16 @@ body {
 }
 #admin-dashboard input.excel-example-order:hover {
   background-color: red;
+}
+
+#change-password .confirm {
+  padding: 0.1em 0.7em;
+  border-radius: 6px;
+  border: 1px solid #11ac20;
+  color: #11ac20;
+}
+#change-password .confirm:hover {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

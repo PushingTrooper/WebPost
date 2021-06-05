@@ -33,9 +33,9 @@
                     <td>Emer Mbiemer</td>
                     <td>emer@rrufe.com</td>
                     <td>1234567</td>
-                    <td><input type="password" id="newpass" placeholder="Shkruani ketu"></td>
-                    <td><input type="password" id="rewrite" placeholder="Shkruani ketu"></td>
-                    <td>ikonat</td>
+                    <td><input type="password" placeholder="Shkruani ketu"></td>
+                    <td><input type="password" placeholder="Shkruani ketu"></td>
+                    <td><div data-id="" class="confirm">Konfirmoni</div></td>
                 </tr>
                 </tbody>
             </table>

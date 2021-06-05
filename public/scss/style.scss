@@ -6,6 +6,45 @@ body {
     background-color: #f2f7f8;
 }
 
+.overlay {
+    &.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        background-color: $blue1;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        h2 {
+            color: $yellow1;
+            text-shadow: 2px 0 $black;
+        }
+        .thing {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1px;
+            border: 10px solid transparent;
+            border-color: $yellow1 transparent transparent $yellow1;
+            border-radius: 50%;
+            animation: thing 5s cubic-bezier(.35,-0.14,.79,1.22) infinite;
+        }
+    }
+    &.inactive {
+        display: none;
+    }
+}
+@keyframes thing {
+    100% {
+        transform: rotateZ(1turn);
+    }
+}
+
 #view-login {
     .background-container {
         display: flow-root;
@@ -253,8 +292,10 @@ body {
     //noinspection CssUnknownTarget
     background-image: url("/storage/images/component7–4.png");
     background-size: cover;
+
     .form-section {
         margin: 4rem 0;
+
         #gjurmo {
             height: unset;
             padding: $input-padding;
@@ -277,16 +318,20 @@ body {
                 border-color: $black;
             }
         }
-        &~h3 {
+
+        & ~ h3 {
             margin-bottom: 2rem;
         }
     }
+
     .tracking-section {
         padding-left: 2rem;
         position: relative;
+
         h5 {
             margin-bottom: 1rem;
         }
+
         &:before {
             content: "";
             position: absolute;
@@ -299,11 +344,13 @@ body {
             background-color: $gray;
 
         }
+
         &:last-of-type {
             &:before {
                 height: calc(100% + 5px);
             }
         }
+
         &:after {
             content: "";
             position: absolute;
@@ -315,18 +362,20 @@ body {
             border-radius: 50%;
             transform: translate(-50%, 0);
         }
+
         &.active {
             &:before, &:after {
                 background-color: $yellow1;
             }
         }
     }
+
     .center-aligned {
         width: 100%;
     }
 }
 
-#packages-list {
+#logistics-page {
     .button-logout {
         background-color: transparent;
         //noinspection CssUnknownTarget
@@ -339,10 +388,12 @@ body {
         border: 2px solid $black;
         border-radius: $border-radius;
         transition: border-color $transition-time $transition-function;
+
         &:hover, &:focus {
             border-color: $yellow1;
         }
     }
+
     .styled-header {
         font-family: $font-bold;
         color: $blue1;
@@ -354,6 +405,7 @@ body {
         display: table;
         z-index: 1;
         position: relative;
+
         &:before {
             content: "";
             height: 1.1em;
@@ -364,6 +416,7 @@ body {
             position: absolute;
             transform: translateX(-30%);
         }
+
         &:after {
             content: "";
             height: 1em;
@@ -375,24 +428,31 @@ body {
             transform: translateX(10%);
         }
     }
+
     .stock-image-holder {
         width: 35px;
     }
+
     .content-info-holder {
         padding-left: 1rem;
+
         p {
             margin-bottom: .3rem;
         }
+
         width: calc(100% - 35px);
     }
+
     .priority-type {
         padding: $button-padding;
         border-radius: $border-radius;
+
         &.green {
             border: 1px solid $green;
             color: $green;
             background-color: $lightgreen;
         }
+
         &.red {
             border: 1px solid $red2;
             color: $red2;
@@ -400,17 +460,21 @@ body {
         }
     }
 }
+
 #admin-dashboard {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
+
     .col-sm-3 {
         margin-top: 1rem;
     }
+
     .col-sm-3:not(:last-of-type) {
         margin-right: 1%;
     }
+
     .col-sm-3:first-of-type {
         margin-left: .5%;
     }
@@ -423,6 +487,7 @@ body {
         padding: 18px 18px 18px 18px;
         margin-bottom: 15px;
     }
+
     .rw-d h3 {
         color: #2d4665;
         font-size: 19px;
@@ -433,7 +498,7 @@ body {
         /*flex: 0 0 24.5%;*/
         max-width: 24% !important;
         @media screen and (max-width: $screen-medium - 1px) {
-            &.rw-d, &.right-col-df{
+            &.rw-d, &.right-col-df {
                 flex: unset;
                 max-width: 99% !important;
             }
@@ -449,14 +514,16 @@ body {
         padding: 10px 14px 10px 14px;
         margin-top: 15px;
     }
+
     .col-list-f:first-of-type {
-        border-top-left-radius: 8px!important;
-        border-top-right-radius: 8px!important;
+        border-top-left-radius: 8px !important;
+        border-top-right-radius: 8px !important;
         margin-top: 20px;
     }
+
     .col-list-f:last-of-type {
-        border-bottom-left-radius: 8px!important;
-        border-bottom-right-radius: 8px!important;
+        border-bottom-left-radius: 8px !important;
+        border-bottom-right-radius: 8px !important;
     }
 
     .col-list-f p {
@@ -471,12 +538,14 @@ body {
         margin: 0 auto;
         /*padding-top: 4px;*/
     }
+
     .col-list-f > div:first-child {
         background-color: #fff;
         width: 10%;
         border-radius: 8px;
         max-height: 30px;
     }
+
     .col-list-f > div:nth-child(2) p {
         padding-left: 20px;
     }
@@ -484,6 +553,7 @@ body {
     .col-list-f > div:nth-child(2) {
         width: 70%;
     }
+
     .col-list-f > div:last-child {
         width: 20%;
     }
@@ -499,6 +569,7 @@ body {
     div#employee .col.col-list-f {
         background-color: #eef9f2;
     }
+
     /*Totali i Dërgesave në Prioritet , dashboard */
     div#priority .col.col-list-f {
         background-color: #f0edfd;
@@ -522,7 +593,7 @@ body {
     }
 
     .col.col-list-f.all-end {
-        width: 100%!important;
+        width: 100% !important;
     }
 
     .col.col-list-f.all-end p {
@@ -557,11 +628,11 @@ body {
         color: #ffffff;
         outline: none;
         transition: .2s;
-        background-color: #85a1c4!important;
+        background-color: #85a1c4 !important;
     }
 
     div#btn-export:hover {
-        background-color: #84e0be!important;
+        background-color: #84e0be !important;
     }
 
     .copy-tooltip {
@@ -611,7 +682,7 @@ body {
         max-height: 455px;
         /* overflow-x: hidden; */
         z-index: 999;
-        border: none!important;
+        border: none !important;
         margin: 0;
         /* padding: 6px 6px 6px 6px; */
         padding: 0;
@@ -659,10 +730,12 @@ body {
         padding: 15px 40px 15px 40px;
         color: #85a1c4;
     }
+
     #modal-printPD-f .modal-footer-button {
         display: block;
         margin: 0 auto;
     }
+
     #modal-printPD-f button.cancel-btn-pdf {
         padding: 10px 49px 10px 49px;
         border: 1px solid #85a1c4;
@@ -672,6 +745,7 @@ body {
         outline: none;
         transition: .2s;
     }
+
     #modal-printPD-f button.download-btn-pdf {
         padding: 6px 40px 6px 40px;
         border: 1px solid #85a1c4;
@@ -687,6 +761,7 @@ body {
         border: 1px solid red;
         color: #fff;
     }
+
     #modal-printPD-f button.download-btn-pdf:hover {
         background-color: red;
         border: 1px solid red;
@@ -701,21 +776,23 @@ body {
     .select-pdf-option .format {
         width: 30%;
     }
+
     .select-pdf-option .type {
         width: 30%;
     }
+
     .select-pdf-option .format label {
         display: contents;
     }
+
     .select-pdf-option .type label {
         display: contents;
     }
-    .select-pdf-option .form-elt{
-        display: block!important;
+
+    .select-pdf-option .form-elt {
+        display: block !important;
         flex-wrap: wrap;
     }
-
-
 
 
     input.excel-example-order {
@@ -729,7 +806,21 @@ body {
         transition: .2s;
         background-color: #84e0be;
     }
+
     input.excel-example-order:hover {
         background-color: red;
+    }
+}
+
+#change-password {
+    .confirm {
+        padding: $button-padding;
+        border-radius: $border-radius;
+        border: 1px solid $green;
+        color: $green;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }

@@ -15,11 +15,37 @@
     <link rel="stylesheet" href="{{ asset('css/style1.css') }}"/>
     {{--  Scripts (defer)  --}}
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script> {{--  do not defer jQuery  --}}
+    <script defer src="{{ asset('js/loading-handler.js') }}"></script>
     <script defer src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
 </head>
 <body>
 {{--  can @include() other partials  --}}
 <div id="content">
+    <div id="loading-overlay-container" class="overlay inactive">
+        <h2>Rrufe: Loading...</h2>
+        <div class="things">
+            <div class="thing">
+                <div class="thing">
+                    <div class="thing">
+                        <div class="thing">
+                            <div class="thing">
+                                <div class="thing">
+                                    <div class="thing">
+                                        <div class="thing">
+                                            <div class="thing">
+                                                <div class="thing">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     @yield('content')
 </div>
 </body>
