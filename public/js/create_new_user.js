@@ -55,17 +55,6 @@ function openClient() {
     clientContainer.style.display = "block";
 }
 
-function goBack() {
-    //TODO: Remove when dropdown is finished
-    pickContainer.style.display = "block";
-    roleContainer.style.display = "none";
-
-    postContainer.style.display = "none";
-    warehouseContainer.style.display = "none";
-    adminContainer.style.display = "none";
-    clientContainer.style.display = "none";
-}
-
 function changeRole(e) {
     switch(e.selectedIndex) {
         case 0: {
@@ -84,7 +73,18 @@ function changeRole(e) {
             openClient();
             break;
         }
-
     }
-    console.log("changed");
+}
+
+function registerAdmin() {
+    let name = adminContainer.getElementById('name');
+    let surname = adminContainer.getElementById('surname');
+    let address = adminContainer.getElementById('address');
+    let pay = adminContainer.getElementById('pay');
+    let email = adminContainer.getElementById('email');
+    let password = adminContainer.getElementById('password');
+    let confirmPassword = adminContainer.getElementById('confirm-password');
+
+
+
 }

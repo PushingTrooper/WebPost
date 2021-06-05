@@ -68,6 +68,99 @@ class ApiController extends Controller
         }
     }
 
+    public function registerAdmin(Request $request): JsonResponse
+    {
+        if ($request->has(['email', 'password', 'name', 'surname', 'pay', 'address'])) {
+            $email = $request['email'];
+            $password = $request['password'];
+            $name = $request['name'];
+            $surname = $request['surname'];
+            $pay = $request['pay'];
+            $address = $request['address'];
+
+            $user = Perdorues::where('email', $request['email'])->first();
+            if($user == null) {
+                $new_user = array('email' => $email, 'password' => $password,
+                    'emri' => $name, 'mbiemri' => $surname,
+                    'adrese' => $address, 'rol_id' => 1,
+                    'magazine_id' => 0, 'qytet_id' => 0,
+                    'paga' => $pay, 'foto_profili' => '',
+                    'latitude' => 90, 'longitude' => 90,
+                    'kerkuar_ndryshim_fjalekalimi' => 0);
+
+                Perdorues::create($new_user);
+                return response()->json(['success' => 'success', 'message' => 'The user is successfully created'], 200);
+            } else {
+                return response()->json(['success' => 'failed', 'message' => 'User already exists'], 401);
+            }
+        } else {
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
+        }
+    }
+
+    public function registerWarehouseman(Request $request): JsonResponse
+    {
+        if ($request->has(['email', 'password', 'name', 'surname', 'pay', 'magazine_id', 'city_id', 'address'])) {
+            $email = $request['email'];
+            $password = $request['password'];
+            $name = $request['name'];
+            $surname = $request['surname'];
+            $pay = $request['pay'];
+            $warehouseId = $request['magazine_id'];
+            $cityId = $request['cityId'];
+            $address = $request['address'];
+
+            $user = Perdorues::where('email', $request['email'])->first();
+            if($user == null) {
+                $new_user = array('email' => $email, 'password' => $password,
+                    'emri' => $name, 'mbiemri' => $surname,
+                    'adrese' => $address, 'rol_id' => 2,
+                    'magazine_id' => $warehouseId, 'qytet_id' => $cityId,
+                    'paga' => $pay, 'foto_profili' => '',
+                    'latitude' => 90, 'longitude' => 90,
+                    'kerkuar_ndryshim_fjalekalimi' => 0);
+
+                Perdorues::create($new_user);
+                return response()->json(['success' => 'success', 'message' => 'The user is successfully created'], 200);
+            } else {
+                return response()->json(['success' => 'failed', 'message' => 'User already exists'], 401);
+            }
+        } else {
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
+        }
+    }
+
+    public function registerPostman(Request $request): JsonResponse
+    {
+        if ($request->has(['email', 'password', 'name', 'surname', 'pay', 'city_id', 'address'])) {
+            $email = $request['email'];
+            $password = $request['password'];
+            $name = $request['name'];
+            $surname = $request['surname'];
+            $pay = $request['pay'];
+            $cityId = $request['city_id'];
+            $address = $request['address'];
+
+            $user = Perdorues::where('email', $request['email'])->first();
+            if($user == null) {
+                $new_user = array('email' => $email, 'password' => $password,
+                    'emri' => $name, 'mbiemri' => $surname,
+                    'adrese' => $address, 'rol_id' => 3,
+                    'magazine_id' => 0, 'qytet_id' => $cityId,
+                    'paga' => $pay, 'foto_profili' => '',
+                    'latitude' => 90, 'longitude' => 90,
+                    'kerkuar_ndryshim_fjalekalimi' => 0);
+
+                Perdorues::create($new_user);
+                return response()->json(['success' => 'success', 'message' => 'The user is successfully created'], 200);
+            } else {
+                return response()->json(['success' => 'failed', 'message' => 'User already exists'], 401);
+            }
+        } else {
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
+        }
+    }
+
     public function getPackagesForUser(Request $request): JsonResponse
     {
         if ($request->has('user_id')) {
