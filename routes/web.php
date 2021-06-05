@@ -1,4 +1,4 @@
-c<?php
+<?php
 
 use Illuminate\Support\Facades\Route;
 
