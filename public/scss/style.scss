@@ -65,6 +65,14 @@ body {
         width: 3ch;
     }
 }
+@keyframes rotateCircle {
+    from {
+        transform: rotateZ(0);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
 #view-login {
     .background-container {
         display: flow-root;
@@ -237,21 +245,6 @@ body {
     }
 
     .title-with-shapes {
-        display: inline-block;
-        z-index: 1;
-        position: relative;
-
-        .circle-yellow {
-            background-color: $yellow2;
-            z-index: -1;
-            height: 5rem;
-            width: 5rem;
-            border-radius: 50%;
-            position: absolute;
-            left: 0;
-            top: 0;
-            transform: translate(-30%, -30%);
-        }
 
         h2 {
             font-family: $font-bold;
@@ -260,6 +253,32 @@ body {
             text-align: center;
             letter-spacing: 3px;
             text-transform: uppercase;
+            margin: 0 auto;
+            display: table;
+            z-index: 1;
+            position: relative;
+
+            &:before {
+                content: "";
+                height: 1.1em;
+                width: 1.1em;
+                border-radius: 50%;
+                background-color: $yellow1;
+                z-index: -1;
+                position: absolute;
+                transform: translateX(-30%);
+            }
+
+            &:after {
+                content: "";
+                height: 1em;
+                width: 2.2em;
+                background-color: $lightblue1;
+                z-index: -1;
+                position: absolute;
+                right: 0;
+                transform: translateX(10%);
+            }
         }
     }
 
@@ -273,6 +292,8 @@ body {
         margin: auto;
         position: relative;
         background-color: $orange1;
+        display: flex;
+        flex-direction: column;
 
         &.circle-top::after, &.circle-bottom::after {
             @media screen and (max-width: $screen-medium - 1px) {
@@ -297,6 +318,44 @@ body {
             right: 0;
             bottom: 0;
             transform: translate(50%, 50%);
+        }
+        img {
+            width: 150px;
+            margin: auto;
+        }
+        h4 {
+            color: white;
+            margin: 0 auto 1rem auto;
+            text-transform: uppercase;
+        }
+    }
+    .z-index-children {
+        .col-12 {
+            z-index: 1;
+        }
+    }
+    .creator-circle {
+        background-color: $yellow3;
+        width: 100%;
+        padding-top: calc(50% - 12px);
+        padding-bottom: calc(50% - 12px);
+        border-radius: 50%;
+        margin-bottom: 2rem;
+        text-align: center;
+        position: relative;
+        font-family: $font-bold;
+        &:after {
+            content: '';
+            z-index: -1;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: $yellow2;
+            transform-origin: 49% 49%;
+            animation: rotateCircle 2.5s linear infinite;
         }
     }
 

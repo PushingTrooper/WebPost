@@ -119,6 +119,14 @@ body {
     width: 3ch;
   }
 }
+@keyframes rotateCircle {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
 #view-login .background-container {
   display: flow-root;
   min-height: 100vh;
@@ -262,22 +270,6 @@ body {
 #client-homepage .gjurmo-form-container .form-section input[type=submit]:hover, #client-homepage .gjurmo-form-container .form-section input[type=submit]:focus {
   border-color: #000000;
 }
-#client-homepage .title-with-shapes {
-  display: inline-block;
-  z-index: 1;
-  position: relative;
-}
-#client-homepage .title-with-shapes .circle-yellow {
-  background-color: #fdf567;
-  z-index: -1;
-  height: 5rem;
-  width: 5rem;
-  border-radius: 50%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform: translate(-30%, -30%);
-}
 #client-homepage .title-with-shapes h2 {
   font-family: "Roboto Bold", sans-serif;
   color: #437f97;
@@ -285,6 +277,30 @@ body {
   text-align: center;
   letter-spacing: 3px;
   text-transform: uppercase;
+  margin: 0 auto;
+  display: table;
+  z-index: 1;
+  position: relative;
+}
+#client-homepage .title-with-shapes h2:before {
+  content: "";
+  height: 1.1em;
+  width: 1.1em;
+  border-radius: 50%;
+  background-color: #ffe400;
+  z-index: -1;
+  position: absolute;
+  transform: translateX(-30%);
+}
+#client-homepage .title-with-shapes h2:after {
+  content: "";
+  height: 1em;
+  width: 2.2em;
+  background-color: #c5e9f0;
+  z-index: -1;
+  position: absolute;
+  right: 0;
+  transform: translateX(10%);
 }
 #client-homepage [class*=col-].z-indexed-div {
   z-index: 1;
@@ -295,6 +311,8 @@ body {
   margin: auto;
   position: relative;
   background-color: #ffbb00;
+  display: flex;
+  flex-direction: column;
 }
 #client-homepage .orange-card.circle-top::after, #client-homepage .orange-card.circle-bottom::after {
   content: "";
@@ -319,6 +337,42 @@ body {
   right: 0;
   bottom: 0;
   transform: translate(50%, 50%);
+}
+#client-homepage .orange-card img {
+  width: 150px;
+  margin: auto;
+}
+#client-homepage .orange-card h4 {
+  color: white;
+  margin: 0 auto 1rem auto;
+  text-transform: uppercase;
+}
+#client-homepage .z-index-children .col-12 {
+  z-index: 1;
+}
+#client-homepage .creator-circle {
+  background-color: #fffedb;
+  width: 100%;
+  padding-top: calc(50% - 12px);
+  padding-bottom: calc(50% - 12px);
+  border-radius: 50%;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  font-family: "Roboto Bold", sans-serif;
+}
+#client-homepage .creator-circle:after {
+  content: "";
+  z-index: -1;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fdf567;
+  transform-origin: 49% 49%;
+  animation: rotateCircle 2.5s linear infinite;
 }
 
 #package-tracking-page {
