@@ -97,18 +97,18 @@
         <ul class="sidebar-navigation">
             <li class="header">Seksioni i pare</li>
             <li>
-                <a href="#">
+                <a href="./admin/changePassword">
                     <i class="fa fa-home" aria-hidden="true"></i>Ndrysho Fjalekalim
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="./admin/createUser">
                     <i class="fa fa-tachometer" aria-hidden="true"></i> Krijo Perdorues
                 </a>
             </li>
             <li class="header">Seksioni i dyte</li>
             <li>
-                <a href="#">
+                <a href="./packages">
                     <i class="fa fa-users" aria-hidden="true"></i> Lista e pakove
                 </a>
             </li>
@@ -131,6 +131,7 @@
         </div>
         <div class="container-fluid">
             <div class="row" id="dashboard-f" style="margin-left: 300px; margin-top: 40px; margin-right: 40px">
+                <div><img src="public/images/logo.png" alt="logo" width="100px" height="100px"> </div>
                 <div class="col-sm-3 rw-d">
                     <h3>Totali i dërgesave në statuset</h3>
 

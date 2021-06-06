@@ -18,8 +18,8 @@ Route::get('/', function () {
 });
 
 
-Route::get('/track', function () {
-    return view('tracking_page');
+Route::get('/track/{tracking_code}', function ($tracking_code) {
+    return view('tracking_page', ['tracking_code' => $tracking_code]);
 });
 
 /*Route::get('/home', function () {
@@ -62,8 +62,8 @@ Route::get('/packages', function () {
     return view('packages_list');
 });
 
-Route::get('/packageDetails', function () {
-    return view('package_details');
+Route::get('/packageDetails/{tracking_code}', function ($tracking_code) {
+    return view('package_details', ['tracking_code'=>$tracking_code]);
 });
 
 Route::get('/editPackage/{tracking_code}', function ($tracking_code) {

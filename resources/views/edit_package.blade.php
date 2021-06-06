@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('pageTitle', 'Login')
+@section('pageTitle', 'Edit Package')
 
 @section('content')
 

@@ -8,8 +8,8 @@
             <div class="row title-bar">
                 <a href="#"><img src="{{asset("storage/images/logo.png")}}" alt="Rrufe"></a>
                 <div class="button-container">
-                    <button class="kycu">Kyçu</button>
-                    <button class="regjistrohu">Regjistrohu</button>
+                    <button class="kycu" onclick="goToLogin()">Kyçu</button>
+                    <button class="regjistrohu" onclick="goToRegister()">Regjistrohu</button>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
                         <h3>Kjo eshte faqja jone postare<br>hihihi hahaah uuu</h3>
                         <label for="gjurmo"></label>
                         <?php echo Form::text('gjurmo', null, array('placeholder' => 'Vendos kodin', 'id' => 'gjurmo', 'class' => 'w-100 form-control')); ?>
-                        <?php echo Form::submit('Gjurmo', array('name' => 'submit')) ?>
+                        <?php echo Form::submit('Gjurmo', array('name' => 'submit', 'onClick' => 'goToTracking()')) ?>
                     </div>
                     <?php Form::close() ?>
                 </div>
@@ -98,4 +98,5 @@
             </div>
         </div>
     </div>
+    <script src="{{asset('/js/welcome.js')}}"></script>
 @endsection

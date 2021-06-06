@@ -26,6 +26,7 @@ Route::post('/registerAdmin', [ApiController::class, 'registerAdmin']);
 Route::post('/registerWarehouseman', [ApiController::class, 'registerWarehouseman']);
 Route::post('/registerPostman', [ApiController::class, 'registerPostman']);
 Route::post('/getPackagesForUser', [ApiController::class, 'getPackagesForUser']);
+Route::post('/getAllPackages', [ApiController::class, 'getAllPackages']);
 Route::post('/getLogistics', [ApiController::class, 'getLogistics']);
 Route::post('/getPackageDetails', [ApiController::class, 'getPackageDetails']);
 Route::get('/getAllCities', [ApiController::class, 'getAllCities']);

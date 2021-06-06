@@ -10,10 +10,9 @@
                     <div class="col-12 col-md-6 align-items-center d-flex">
                         <div class="center-aligned">
                             <h5>Vendosni kodin e pakos per te pare statusin</h5>
-                            <?php Form::open(['method' => 'POST', 'route' => 'home']) ?>
                             <div class="form-section position-relative">
                                 <label for="gjurmo"></label>
-                                <?php echo Form::text('gjurmo', null, array('placeholder' => 'Vendos kodin', 'id' => 'gjurmo', 'class' => 'w-100 form-control')); ?>
+                                <?php echo Form::text('gjurmo', $tracking_code, array('placeholder' => 'Vendos kodin', 'id' => 'gjurmo', 'class' => 'w-100 form-control', 'autocomplete' => 'off')); ?>
                                 <?php echo Form::submit('Gjurmo', array('name' => 'submit')) ?>
                             </div>
                             <?php Form::close() ?>

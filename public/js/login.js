@@ -14,6 +14,7 @@ function loginClick() {
             success: function(data, status, xhr){
                 message.style.visibility = "visible";
                 storage.setItem("userId", data.user_id);
+                storage.setItem("roleId", data.role_id);
                 storage.setItem("warehouseId", data.warehouse_id);
 
                 switch (data.role_id) {
@@ -24,14 +25,17 @@ function loginClick() {
                     }
                     case 2: {
                         message.innerHTML = "Jeni loguar si magazinier!";
+                        window.location = "../packages"
                         break;
                     }
                     case 3: {
                         message.innerHTML = "Jeni loguar si postier!";
+                        window.location = "../packages"
                         break;
                     }
                     case 4: {
                         message.innerHTML = "Jeni loguar si klient!";
+                        window.location = "../packages"
                         break;
                     }
                 }

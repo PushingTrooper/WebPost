@@ -7,10 +7,19 @@ function getTrElement(str) {
 
 let response;
 let user_id = window.localStorage.getItem('userId') ?? undefined;
+let role_id = window.localStorage.getItem('roleId') ?? undefined;
 if (user_id) {
     showLoading();
+
+    let url;
+    if(role_id == 4) {
+        url = "../api/getPackagesForUser"
+    } else {
+        url = "../api/getAllPackages"
+    }
+
     $.ajax({
-        url: "../api/getPackagesForUser",
+        url: url,
         type: 'POST',
         data: {user_id: user_id},
         context: document.body,
