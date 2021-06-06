@@ -49,7 +49,7 @@ function addPackages(packages) {
             console.log(packages[item]);
             let priorityType;
             (packages[item].package_priority) === "normal" ? priorityType='green' : priorityType='red';
-            let packageHTML = '<tr>\n' +
+            let packageHTML = '<tr data-id="'+ packages[item].tracking_code +'">\n' +
                 '                                <td>' + packages[item].tracking_code + '</td>\n' +
                 '                                <td>' + packages[item].sender_name + 'm</td>\n' +
                 '                                <td>' + packages[item].receiver.name + '</td>\n' +
@@ -59,6 +59,21 @@ function addPackages(packages) {
                 '                                <td><span class="priority-type  '+ priorityType +' ">' + packages[item].package_priority +'</span></td>\n' +
                 '                            </tr>'
             parent.appendChild(getTrElement(packageHTML));
+            let trs = parent.querySelectorAll('tr');
+            $(trs).prop("onclick", null).off("click");
+            $(trs).click(() => {
+                console.log(event.target);
+                let element = event.target;
+                let key;
+                if(element.nodeName === 'TR') {
+                    key = element.dataset.id ?? undefined;
+                } else if(element.nodeName === 'TD') {
+                    key = element.parentElement.dataset.id ?? undefined;
+                }
+                if(key) {
+                    window.location = '../track/'+key;
+                }
+            })
         }
     }
 }

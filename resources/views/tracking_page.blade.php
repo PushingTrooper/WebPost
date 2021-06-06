@@ -16,31 +16,32 @@
                                 <?php echo Form::submit('Gjurmo', array('name' => 'submit')) ?>
                             </div>
                             <?php Form::close() ?>
-                            <h3>Numri i pakos:</h3>
+                            <h3 id="package-number-container">Numri i pakos:</h3>
                         </div>
                     </div>
                     <div class="col-12 col-md-5 offset-md-1 align-items-center d-flex">
-                        <div class="center-aligned">
-                            <div class="tracking-section active">
-                                <h5>Statusi:</h5>
-                                <h5>Data:</h5>
-                            </div>
-                            <div class="tracking-section">
-                                <h5>Statusi:</h5>
-                                <h5>Data:</h5>
-                            </div>
-                            <div class="tracking-section">
-                                <h5>Statusi:</h5>
-                                <h5>Data:</h5>
-                            </div>
-                            <div class="tracking-section">
-                                <h5>Statusi:</h5>
-                                <h5>Data:</h5>
-                            </div>
+                        <div id="package-history-container" class="center-aligned">
+{{--                            <div class="tracking-section active">--}}
+{{--                                <h5>Statusi:</h5>--}}
+{{--                                <h5>Data:</h5>--}}
+{{--                            </div>--}}
+{{--                            <div class="tracking-section">--}}
+{{--                                <h5>Statusi:</h5>--}}
+{{--                                <h5>Data:</h5>--}}
+{{--                            </div>--}}
+{{--                            <div class="tracking-section">--}}
+{{--                                <h5>Statusi:</h5>--}}
+{{--                                <h5>Data:</h5>--}}
+{{--                            </div>--}}
+{{--                            <div class="tracking-section">--}}
+{{--                                <h5>Statusi:</h5>--}}
+{{--                                <h5>Data:</h5>--}}
+{{--                            </div>--}}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script defer src="{{asset('/js/tracking-page.js')}}"></script>
 @endsection

@@ -20,12 +20,14 @@ body {
         top: 0;
         left: 0;
         z-index: 1000;
+
         h2 {
             color: $yellow1;
             text-shadow: 2px 0 $black;
             font-size: 2em;
             width: 250px;
             margin-bottom: 1rem;
+
             span {
                 display: inline-block;
                 width: 3ch;
@@ -37,6 +39,7 @@ body {
                 bottom: -10px;
             }
         }
+
         .thing {
             display: flex;
             justify-content: center;
@@ -45,18 +48,21 @@ body {
             border: 10px solid transparent;
             border-color: $yellow1 transparent transparent $yellow1;
             border-radius: 50%;
-            animation: thing 5s cubic-bezier(.35,-0.14,.79,1.22) infinite;
+            animation: thing 5s cubic-bezier(.35, -0.14, .79, 1.22) infinite;
         }
     }
+
     &.inactive {
         display: none;
     }
 }
+
 @keyframes thing {
     100% {
         transform: rotateZ(1turn);
     }
 }
+
 @keyframes typing {
     from {
         width: 0;
@@ -65,6 +71,7 @@ body {
         width: 3ch;
     }
 }
+
 @keyframes rotateCircle {
     from {
         transform: rotateZ(0);
@@ -73,6 +80,7 @@ body {
         transform: rotateZ(360deg);
     }
 }
+
 #view-login {
     .background-container {
         display: flow-root;
@@ -319,21 +327,25 @@ body {
             bottom: 0;
             transform: translate(50%, 50%);
         }
+
         img {
             width: 150px;
             margin: auto;
         }
+
         h4 {
             color: white;
             margin: 0 auto 1rem auto;
             text-transform: uppercase;
         }
     }
+
     .z-index-children {
         .col-12 {
             z-index: 1;
         }
     }
+
     .creator-circle {
         background-color: $yellow3;
         width: 100%;
@@ -344,6 +356,7 @@ body {
         text-align: center;
         position: relative;
         font-family: $font-bold;
+
         &:after {
             content: '';
             z-index: -1;
@@ -902,11 +915,13 @@ body {
             cursor: pointer;
         }
     }
+
     .rrethim {
         padding: 1rem;
         border-radius: 20px;
         background-color: white;
     }
+
     .styled-header {
         font-family: $font-bold;
         color: $blue1;
@@ -941,6 +956,7 @@ body {
             transform: translateX(10%);
         }
     }
+
     .button-logout {
         background-color: transparent;
         //noinspection CssUnknownTarget
@@ -959,12 +975,14 @@ body {
         }
     }
 }
+
 #packages-list {
     .rrethim {
         padding: 1rem;
         border-radius: 20px;
         background-color: white;
     }
+
     .button-logout {
         background-color: transparent;
         //noinspection CssUnknownTarget
@@ -982,6 +1000,17 @@ body {
             border-color: $yellow1;
         }
     }
+
+    #package-list-table-container {
+        tr {
+            transition: background-color $transition-time $transition-function;
+
+            &:hover {
+                background-color: #ccc;
+            }
+        }
+    }
+
     .priority-type {
         padding: $button-padding;
         border-radius: $border-radius;

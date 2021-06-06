@@ -892,6 +892,12 @@ body {
 #packages-list .button-logout:hover, #packages-list .button-logout:focus {
   border-color: #ffe400;
 }
+#packages-list #package-list-table-container tr {
+  transition: background-color 220ms cubic-bezier(0.63, 0, 0.37, 1);
+}
+#packages-list #package-list-table-container tr:hover {
+  background-color: #ccc;
+}
 #packages-list .priority-type {
   padding: 0.1em 0.7em;
   border-radius: 6px;
