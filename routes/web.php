@@ -66,8 +66,8 @@ Route::get('/packageDetails', function () {
     return view('package_details');
 });
 
-Route::get('/editPackage', function () {
-    return view('edit_package');
+Route::get('/editPackage/{tracking_code}', function ($tracking_code) {
+    return view('edit_package', ['tracking_code'=>$tracking_code]);
 });
 
 Route::get('/post/warehouses', function () {

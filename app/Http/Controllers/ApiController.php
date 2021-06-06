@@ -639,4 +639,31 @@ class ApiController extends Controller
             return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
         }
     }
+
+    function getAllUsersReqPassChange(): JsonResponse {
+        $users = Perdorues::where('kerkuar_ndryshim_fjalekalimi', 1)->get(['emri', 'mbiemri', 'email', 'password']);
+        return response()->json(['users' => $users], 200);
+    }
+
+    function changePassword(Request $request): JsonResponse {
+        if($request->has(['user_id', 'new_password'])) {
+            $new_password = ['password' => $request['new_password'], 'kerkuar_ndryshim_fjalekalimi' => 0];
+            Perdorues::where('perdorues_id', $request['user_id'])->update($new_password);
+
+            return response()->json(['success' => 'success', 'message' => 'Fjalëkalimi u ndryshua me sukses'], 200);
+        } else {
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
+        }
+    }
+
+    function denyPasswordChange(Request $request) {
+        if($request->has(['user_id'])) {
+            $array = ['kerkuar_ndryshim_fjalekalimi' => 0];
+            Perdorues::where('perdorues_id', $request['user_id'])->update($array);
+
+            return response()->json(['success' => 'success', 'message' => 'Përdoruesi u hoq nga lista'], 200);
+        } else {
+            return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
+        }
+    }
 }

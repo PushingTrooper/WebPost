@@ -37,3 +37,6 @@ Route::post('/reportLostPackage', [ApiController::class, 'reportLostPackage']);
 Route::post('/deletePackage', [ApiController::class, 'deletePackage']);
 Route::post('/getAllPostmenLocation', [ApiController::class, 'getAllPostmenLocation']);
 Route::post('/changePayAndRole', [ApiController::class, 'changePayAndRole']);
+Route::get('/getAllUsersReqPassChange', [ApiController::class, 'getAllUsersReqPassChange']);
+Route::post('/changePassword', [ApiController::class, 'changePassword']);
+Route::post('/denyPasswordChange', [ApiController::class, 'denyPasswordChange']);
