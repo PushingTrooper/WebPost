@@ -13,7 +13,8 @@ function loginClick() {
             context: document.body,
             success: function(data, status, xhr){
                 message.style.visibility = "visible";
-                storage.setItem("userId", data.user_id)
+                storage.setItem("userId", data.user_id);
+                storage.setItem("warehouseId", data.warehouse_id);
 
                 switch (data.role_id) {
                     case 1: {
@@ -41,6 +42,7 @@ function loginClick() {
                 message.style.visibility = "visible";
                 message.innerHTML = jqXhr.responseJSON.message;
                 storage.removeItem("userId")
+                storage.removeItem('warehouseId');
             }
         });
     }

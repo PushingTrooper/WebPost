@@ -14,7 +14,7 @@
         </div>
         <div class="container-fluid">
             <div class="row mt-5">
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 mt-3">
                     <div class="w-100 h-100 bg-white card p-3">
                         <h2 class="styled-header">Hyrjet</h2>
                         <div id="hyrjet" class="row mt-3">
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 mt-3">
                     <div class="w-100 h-100 bg-white card p-3">
                         <h2 class="styled-header">Daljet</h2>
                         <div id="daljet" class="row mt-3">

@@ -15,3 +15,11 @@ function hideLoading() {
         overlayDiv.classList.add('inactive');
     }
 }
+
+var logoutButton = document.querySelector('.button-logout') ?? undefined;
+if(logoutButton) {
+    $(logoutButton).click(() => {
+        localStorage.clear();
+        window.location.reload();
+    })
+}

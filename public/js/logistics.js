@@ -7,43 +7,28 @@ if (user_id && warehouse_id) {
     showLoading();
     $.ajax({
         url: "../api/getLogistics",
-        type: 'GET',
+        type: 'POST',
         data: {user_id: user_id, warehouse_id: warehouse_id},
         context: document.body,
         success: function (data, status, xhr) {
             response = data;
-            addItems(data.coming_in, hyrje);
-            addItems(data.goung_out, dalje);
+            hideLoading();
         },
         error: function (jqXhr, textStatus, errorMessage) {
             response = jqXhr.responseJSON.message;
+            hideLoading();
         }
     }).done(() => {
         console.log(response);
-        hideLoading();
+        addItems(response.coming_in, hyrje);
+        addItems(response.going_out, dalje);
+    }).fail(() => {
+        console.log('err');
     });
 } else {
     console.log("Ju nuk jeni loguar si magazinier!")
 }
 
-/*
-coming_in: [
-tracking_code,
-last_status,
-last_updated,
-receiver: { name, address },
-sender_name,
-package_priority
-],
-going_out: [
-tracking_code,
-last_status,
-last_updated,
-receiver: { name, address },
-sender_name,
-package_priority
-]
- */
 class Package {
     tracking_code;
     last_status;
@@ -63,23 +48,26 @@ class Package {
 }
 
 function addItems(data, location) {
+    console.log('happening');
     let itemSet = [];
+    console.log(data);
     for (let item in data) {
         if (!data.hasOwnProperty(item)) continue;
+        console.log(data[item]);
         let priorityType;
-        (item.package_priority) === "normal" ? priorityType='green' : priorityType='red';
+        (data[item].package_priority) === "normal" ? priorityType='green' : priorityType='red';
         let cloneHTML = '<div class="col-12 col-xl-6">\n' +
             '                                <div class="h-100 float-left d-inline-block stock-image-holder">\n' +
             '                                    <img src="http://127.0.0.1:8000/storage/icons/in-stock.png" alt="stock">\n' +
             '                                </div>\n' +
             '                                <div class="float-right content-info-holder">\n' +
-            '                                    <p><b>Kodi: </b>' + item.tracking_code +'</p>\n' +
-            '                                    <p><b>Marresi: </b>' + item.receiver +'</p>\n' +
-            '                                    <p><b>Derguesi: </b>' + item.sender_name +'</p>\n' +
+            '                                    <p><b>Kodi: </b>' + data[item].tracking_code +'</p>\n' +
+            '                                    <p><b>Marresi: </b>' + data[item].receiver.name +'</p>\n' +
+            '                                    <p><b>Derguesi: </b>' + data[item].sender_name +'</p>\n' +
             '                                    <p><b>Adresa: </b>sda sda</p>\n' +
-            '                                    <p><b>Statusi: </b>' + item.last_status +'</p>\n' +
-            '                                    <p><b>Perditesuar: </b>' + item.last_updated +'</p>\n' +
-            '                                    <p><b>Prioriteti: </b><span class="priority-type  '+ priorityType +' ">' + item.package_priority +'</span></p>\n' +
+            '                                    <p><b>Statusi: </b>' + data[item].last_status +'</p>\n' +
+            '                                    <p><b>Perditesuar: </b>' + data[item].last_updated +'</p>\n' +
+            '                                    <p><b>Prioriteti: </b><span class="priority-type  '+ priorityType +' ">' + data[item].package_priority +'</span></p>\n' +
             '                                </div>\n' +
             '                            </div>'
         location.innerHTML+= cloneHTML;
