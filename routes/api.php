@@ -41,3 +41,4 @@ Route::post('/changePayAndRole', [ApiController::class, 'changePayAndRole']);
 Route::get('/getAllUsersReqPassChange', [ApiController::class, 'getAllUsersReqPassChange']);
 Route::post('/changePassword', [ApiController::class, 'changePassword']);
 Route::post('/denyPasswordChange', [ApiController::class, 'denyPasswordChange']);
+Route::post('/storeImage', [ApiController::class, 'storeImage']);

@@ -358,19 +358,24 @@ class ApiController extends Controller
 
             if ($package != null) {
                 $historyOrder = HistorikPorosi::where('porosi_id', $package['porosi_id'])
-                    ->get(['magazine_id', 'perdorues_id', 'status_id']);
+                    ->get(['magazine_id', 'perdorues_id', 'status_id', 'data_krijimit']);
 
                 $history = array();
 
                 foreach ($historyOrder as $time) {
                     $user = Perdorues::where('perdorues_id', $time['perdorues_id'])
                         ->first(['perdorues_id', 'emri', 'mbiemri', 'rol_id']);
+
+                    $status = Status::where('staus_id', $time['status_id'])->first('status');
+
                     $history[] = (object)[
                         'warehouse_id' => $time['magazine_id'],
                         'user' =>
                             ['id' => $user['perdorues_id'], 'role' => $user['rol_id'],
                                 'name' => $user['emri'], 'surname' => $user['mbiemri']],
-                        'status_id' => $time['status_id']
+                        'status_id' => $time['status_id'],
+                        'status' => $status['status'],
+                        'date' => $time['data_krijimit']
                     ];
                 }
 
@@ -718,6 +723,29 @@ class ApiController extends Controller
             return response()->json(['success' => 'success', 'message' => 'Përdoruesi u hoq nga lista'], 200);
         } else {
             return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
+        }
+    }
+
+    function storeImage(Request $request) {
+        if ($request->hasFile('image')) {
+            $filenameWithExt = $request->file('image')->getClientOriginalName ();
+
+            // Get Filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            // Get just Extension
+            $extension = $request->file('image')->getClientOriginalExtension();
+
+            // Filename To store
+            $fileNameToStore = $filename. '_'. time().'.'.$extension;
+
+            // Upload Image
+            $path = $request->file('image')->storeAs('public/image', $fileNameToStore);
+            return response()->json(['path' => $path], 200);
+        }// Else add a dummy image
+        else {
+            $fileNameToStore = 'noimage.jpg';
+            return response()->json(['ew' => 'no'], 400);
         }
     }
 }
