@@ -543,6 +543,31 @@ body {
 #admin-dashboard .col-sm-3:first-of-type {
   margin-left: 0.5%;
 }
+#admin-dashboard .image-input-container {
+  display: inline-block;
+  border: 2px solid #fdf567;
+  border-radius: 6px;
+  position: relative;
+  height: 30px;
+  width: 300px;
+  cursor: pointer;
+}
+#admin-dashboard .image-input-container.finished:before {
+  content: "Foto u vendos!";
+}
+#admin-dashboard .image-input-container:before {
+  content: "Vendosni foton!";
+  position: relative;
+  left: 10px;
+}
+#admin-dashboard .image-input-container input[type=file] {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
 #admin-dashboard .rw-d {
   background-color: #fff;
   display: block;

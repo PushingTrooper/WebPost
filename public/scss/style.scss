@@ -570,6 +570,33 @@ body {
     .col-sm-3:first-of-type {
         margin-left: .5%;
     }
+    .image-input-container {
+        display: inline-block;
+        border: 2px solid $yellow2;
+        border-radius: $border-radius;
+        position: relative;
+        height: 30px;
+        width: 300px;
+        cursor: pointer;
+        &.finished {
+            &:before {
+                content: "Foto u vendos!";
+            }
+        }
+        &:before {
+            content: "Vendosni foton!";
+            position: relative;
+            left: 10px;
+        }
+        input[type='file'] {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+    }
 
     .rw-d {
         background-color: #fff;

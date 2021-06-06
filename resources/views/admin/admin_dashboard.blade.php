@@ -129,13 +129,22 @@
 
 {{--            <hr class="hr-line">--}}
         </div>
-        <div class="container-fluid">
-            <div class="row" id="dashboard-f" style="margin-left: 300px; margin-top: 40px; margin-right: 40px">
-                <div>
-                    <img src="public/images/logo.png" id="profile-image" alt="logo" width="100px" height="100px">
-                        <input type="file" name="image" id="image" accept="image/*">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div style="margin-left: 305px; margin-top: 2rem">
+                    <img src="" id="profile-image" alt="logo" width="100px" height="100px">
+                    <div class="image-input-container">
+                    <input type="file" name="image" id="image" accept="image/*">
+                    </div>
                     <button onclick="uploadImage()" >Upload</button>
                 </div>
+            </div>
+        </div>
+    </div>
+        <div class="container-fluid">
+            <div class="row" id="dashboard-f" style="margin-left: 300px; margin-top: 2rem; margin-right: 40px">
+
                 <div class="col-sm-3 rw-d">
                     <h3>Totali i dërgesave në statuset</h3>
 
@@ -350,28 +359,6 @@
 
 
                     </div>
-                    <div class="col rw-d" id="max_discounts">
-                        <h3>Klientët me më shumë ulje</h3>
-                        {{--                    @if($max_discounts)--}}
-                        {{--                        @foreach ($max_discounts as $k)--}}
-                        {{--                            @if($k[0]!="-")--}}
-                        <div class="col col-list-f">
-                            <div>
-                                <img class="d-icon" src="{{--{{asset('storage/images/icons/klient-me-ulje-icon.png')}}--}}">
-                            </div>
-                            <div>
-                                <p>{{--{{$k[0]}}--}}</p>
-                            </div>
-                            <div>
-                                <p>{{--{{$k[1]}}--}}</p>
-                            </div>
-                        </div>
-                        {{--                            @endif--}}
-                        {{--                        @endforeach--}}
-                        {{--                    @endif--}}
-
-
-                    </div>
                 </div>
                 <div class="col-sm-3 right-col-df trans-top-col-df">
                     <div class="col rw-d" id="order_type">
@@ -403,37 +390,7 @@
 
 
                     </div>
-                    <div class="col rw-d" id="max_orders_clients">
-                        <h3>Klientët me numrin më të lartë të dërgesave</h3>
-                        {{--                    @if($max_orders_clients)--}}
-                        {{--                        @foreach ($max_orders_clients as $k)--}}
-                        <div class="col col-list-f">
-                            <div>
-                                <img class="d-icon" src="{{--{{asset('storage/images/icons/klient-icon.png')}}--}}">
-                            </div>
-                            <div>
-                                <p>{{--{{$k[0]}}--}}</p>
-                            </div>
-                            <div>
-                                <p>{{--{{$k[1]}}--}}</p>
-                            </div>
-                        </div>
-                        {{--                        @endforeach--}}
-                        {{--                    @endif--}}
 
-                        <div class="col col-list-f">
-                            <div>
-                                <img class="d-icon" src="{{--{{asset('storage/images/icons/klient-me-ulje-icon.png')}}--}}">
-                            </div>
-                            <div>
-                                <p>Numri i klientëve biznes</p>
-                            </div>
-                            <div>
-                                <p>{{--{{$total_clients}}--}}</p>
-                            </div>
-                        </div>
-
-                    </div>
 
                 </div>
             </div>
