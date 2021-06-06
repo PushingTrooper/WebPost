@@ -366,7 +366,7 @@ class ApiController extends Controller
                     $user = Perdorues::where('perdorues_id', $time['perdorues_id'])
                         ->first(['perdorues_id', 'emri', 'mbiemri', 'rol_id']);
 
-                    $status = Status::where('staus_id', $time['status_id'])->first('status');
+                    $status = Status::where('status_id', $time['status_id'])->first('status');
 
                     $history[] = (object)[
                         'warehouse_id' => $time['magazine_id'],
