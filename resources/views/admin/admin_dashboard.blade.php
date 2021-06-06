@@ -131,7 +131,11 @@
         </div>
         <div class="container-fluid">
             <div class="row" id="dashboard-f" style="margin-left: 300px; margin-top: 40px; margin-right: 40px">
-                <div><img src="public/images/logo.png" alt="logo" width="100px" height="100px"> </div>
+                <div>
+                    <img src="public/images/logo.png" id="profile-image" alt="logo" width="100px" height="100px">
+                        <input type="file" name="image" id="image" accept="image/*">
+                    <button onclick="uploadImage()" >Upload</button>
+                </div>
                 <div class="col-sm-3 rw-d">
                     <h3>Totali i dërgesave në statuset</h3>
 
@@ -437,4 +441,5 @@
     </div>
 
 </div>
+    <script src="{{asset('/js/admin.js')}}"></script>
 @endsection

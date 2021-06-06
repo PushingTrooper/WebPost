@@ -15,6 +15,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use phpDocumentor\Reflection\Types\Object_;
 
@@ -728,21 +729,27 @@ class ApiController extends Controller
 
     function storeImage(Request $request) {
         if ($request->hasFile('image')) {
-            $filenameWithExt = $request->file('image')->getClientOriginalName ();
+            if($request->has('user_id')) {
+                $filenameWithExt = $request->file('image')->getClientOriginalName ();
 
-            // Get Filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
-            // Get just Extension
-            $extension = $request->file('image')->getClientOriginalExtension();
+                $extension = $request->file('image')->getClientOriginalExtension();
 
-            // Filename To store
-            $fileNameToStore = $filename. '_'. time().'.'.$extension;
+                $fileNameToStore = $filename. '_'. time().'.'.$extension;
 
-            // Upload Image
-            $path = $request->file('image')->storeAs('public/image', $fileNameToStore);
-            return response()->json(['path' => $path], 200);
-        }// Else add a dummy image
+                $path = $request->file('image')->storeAs('public/image', $fileNameToStore);
+
+                $newAvatarPath = ['foto_profili'=> $path];
+                Perdorues::where('perdorues_id', $request['user_id'])->update($newAvatarPath);
+
+                return response()->json(['path' => $path], 200);
+            } else {
+                return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
+            }
+
+
+        }
         else {
             $fileNameToStore = 'noimage.jpg';
             return response()->json(['ew' => 'no'], 400);
