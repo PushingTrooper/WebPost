@@ -96,11 +96,11 @@
         </div>
         <ul class="sidebar-navigation">
             <li class="header">Seksioni i pare</li>
-            <li>
+            {{--<li>
                 <a href="./admin/changePassword">
                     <i class="fa fa-home" aria-hidden="true"></i>Ndrysho Fjalekalim
                 </a>
-            </li>
+            </li>--}}
             <li>
                 <a href="./admin/createUser">
                     <i class="fa fa-tachometer" aria-hidden="true"></i> Krijo Perdorues
@@ -112,11 +112,11 @@
                     <i class="fa fa-users" aria-hidden="true"></i> Lista e pakove
                 </a>
             </li>
-            <li>
+            {{--<li>
                 <a href="#">
                     <i class="fa fa-cog" aria-hidden="true"></i> Vendndodhja e postiereve
                 </a>
-            </li>
+            </li>--}}
         </ul>
     </div>
     <div>
@@ -130,8 +130,8 @@
 {{--            <hr class="hr-line">--}}
         </div>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
+        <div class="">
+            <div class="col-6" style="margin-left: 25%">
                 <div style="margin-left: 305px; margin-top: 2rem">
                     <img src="" id="profile-image" alt="logo" width="100px" height="100px">
                     <div class="image-input-container">

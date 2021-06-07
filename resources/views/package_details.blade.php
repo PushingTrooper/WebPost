@@ -73,6 +73,10 @@
                         <td class="left-side">Koment</td>
                         <td class="right-side" colspan="2" id="comment">Koment</td>
                     </tr>
+                    <tr>
+                        <td><button class="edito" onclick="goOneUp()">Perditeso Status</button></td>
+                        <td></td>
+                    </tr>
                     </tbody>
                 </table>
                 </div>

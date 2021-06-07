@@ -52,3 +52,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
 function goToEdit() {
     window.location = "../editPackage/"+tracking_code
 }
+
+function goOneUp() {
+    let user_id = window.localStorage.getItem('userId');
+
+    $.ajax({
+        url: "../api/changeStatusOfPackage",
+        type: 'POST',
+        data: {tracking_code: tracking_code, user_id: user_id},
+        context: document.body,
+        success: function (data, status, xhr) {
+            window.location.reload(true)
+        },
+        error: function (jqXhr, textStatus, errorMessage) {
+            console.log("error")
+            hideLoading()
+        }
+    })
+}
