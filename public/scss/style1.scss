@@ -240,11 +240,6 @@
             transition: border-color $transition-time $transition-function;
         }
 
-        button.button-logout {
-            position: relative;
-            left: -220px;
-            top: 50px;
-        }
     }
 
 
@@ -342,4 +337,10 @@
     #dashboard-f {
         margin-left: 250px;
     }
+}
+
+button.button-logout {
+    position: relative;
+    left: -220px;
+    top: 50px;
 }

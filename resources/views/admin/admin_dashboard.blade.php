@@ -143,6 +143,14 @@
         </div>
     </div>
         <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 mt-3">
+                    <div class="float-right d-flex align-items-center h-100">
+                        <button class="button-logout">DIL</button>
+                    </div>
+                </div>
+            </div>
+
             <div class="row" id="dashboard-f" style="margin-left: 300px; margin-top: 2rem; margin-right: 40px">
 
                 <div class="col-sm-3 rw-d">

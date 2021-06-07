@@ -71,7 +71,11 @@ function addPackages(packages) {
                     key = element.parentElement.dataset.id ?? undefined;
                 }
                 if(key) {
-                    window.location = '../track/'+key;
+                    if(role_id == 4) {
+                        window.location = '../track/'+key;
+                    } else {
+                        window.location = '../packageDetails/'+key;
+                    }
                 }
             })
         }

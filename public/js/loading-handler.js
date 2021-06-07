@@ -20,6 +20,6 @@ var logoutButton = document.querySelector('.button-logout') ?? undefined;
 if(logoutButton) {
     $(logoutButton).click(() => {
         localStorage.clear();
-        window.location.reload();
+        window.location = "http://127.0.0.1:8000/";
     })
 }
