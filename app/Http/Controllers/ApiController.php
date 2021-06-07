@@ -747,12 +747,146 @@ class ApiController extends Controller
             } else {
                 return response()->json(['success' => 'failed', 'message' => 'Give all the required parameters'], 400);
             }
-
-
         }
         else {
             $fileNameToStore = 'noimage.jpg';
             return response()->json(['ew' => 'no'], 400);
         }
+    }
+
+    function getAdminMetrics() {
+        $history = HistorikPorosi::all();
+
+        $addedSum = 0;
+        $waitingSum = 0;
+        $nisurSum = 0;
+        $inventorySum = 0;
+        $arrivedSum = 0;
+        $returningSum = 0;
+        $returnedSum = 0;
+        $lostSum = 0;
+        $deletedSum = 0;
+
+        foreach ($history as $item) {
+            switch ($item['status_id']) {
+                case 1: {
+                    $addedSum++;
+                    break;
+                }
+                case 2: {
+                    $waitingSum++;
+                    break;
+                }
+                case 3: {
+                    $nisurSum++;
+                    break;
+                }
+                case 4: {
+                    $inventorySum++;
+                    break;
+                }
+                case 5: {
+                    $arrivedSum++;
+                    break;
+                }
+                case 6: {
+                    $returningSum++;
+                    break;
+                }
+                case 7: {
+                    $returnedSum++;
+                    break;
+                }
+                case 8: {
+                    $lostSum++;
+                    break;
+                }
+                case 9: {
+                    $deletedSum++;
+                    break;
+                }
+            }
+        }
+
+        $users = Perdorues::all();
+
+        $adminSum = 0;
+        $warehousemanSum = 0;
+        $postmanSum = 0;
+        $clientSum = 0;
+
+        foreach ($users as $user) {
+            switch ($user['rol_id']) {
+                case 1: {
+                    $adminSum++;
+                    break;
+                }
+                case 2: {
+                    $warehousemanSum++;
+                    break;
+                }
+                case 3: {
+                    $postmanSum++;
+                    break;
+                }
+                case 4: {
+                    $clientSum++;
+                    break;
+                }
+            }
+        }
+
+        $packages = Porosi::all();
+
+        $expressSum = 0;
+        $normalSum = 0;
+        $letterSum = 0;
+        $packageSum = 0;
+
+        foreach ($packages as $package) {
+            switch ($package['tipi']) {
+                case 'paketë': {
+                    $packageSum++;
+                    break;
+                }
+                case 'letër': {
+                    $letterSum++;
+                    break;
+                }
+            }
+
+            switch ($package['tipi_dergeses']){
+                case 'normal': {
+                    $normalSum++;
+                    break;
+                }
+                case 'ekspres': {
+                    $expressSum++;
+                    break;
+                }
+            }
+        }
+
+        $response = (object) [
+            'added' => $addedSum,
+            'pritje' => $waitingSum,
+            'niusr' => $nisurSum,
+            'inventory' => $inventorySum,
+            'arrived' => $arrivedSum,
+            'returning' => $returningSum,
+            'returned' => $returnedSum,
+            'lost' => $lostSum,
+            'deleted' => $deletedSum,
+            'admin' => $adminSum,
+            'warehouse' => $warehousemanSum,
+            'postman' => $postmanSum,
+            'client' => $clientSum,
+            'express' => $expressSum,
+            'normal' => $normalSum,
+            'letter' => $letterSum,
+            'package' => $packageSum
+        ];
+
+        return response()->json($response, 200);
     }
 }

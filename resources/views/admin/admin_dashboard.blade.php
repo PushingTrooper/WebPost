@@ -153,10 +153,10 @@
                             <img class="d-icon" src="{{--{{asset('storage/images/icons/u-krijua-icon.png')}}--}}">
                         </div>
                         <div>
-                            <p>U krijua</p>
+                            <p>U shtua</p>
                         </div>
                         <div>
-                            <p>{{--{{$in_status[0]}}--}}</p>
+                            <p id="added">{{--{{$in_status[0]}}--}}</p>
                         </div>
                     </div>
 
@@ -165,10 +165,10 @@
                             <img class="d-icon" src="{{--{{asset('storage/images/icons/ne-thes-icon.png')}}--}}">
                         </div>
                         <div>
-                            <p>U fut në thes</p>
+                            <p>Në pritje për dërgim</p>
                         </div>
                         <div>
-                            <p>{{--{{$in_status[1]}}--}}</p>
+                            <p id="waiting">{{--{{$in_status[1]}}--}}</p>
                         </div>
                     </div>
 
@@ -177,10 +177,10 @@
                             <img class="d-icon" src="{{--{{asset('storage/images/icons/ne-magazine-icon.png')}}--}}">
                         </div>
                         <div>
-                            <p>Në magazinë</p>
+                            <p>E nisur</p>
                         </div>
                         <div>
-                            <p>{{--{{$in_status[2]}}--}}</p>
+                            <p id="nisur">{{--{{$in_status[2]}}--}}</p>
                         </div>
                     </div>
 
@@ -189,10 +189,10 @@
                             <img class="d-icon" src="{{--{{asset('storage/images/icons/per-dergim-icon.png')}}--}}">
                         </div>
                         <div>
-                            <p>Për dërgim</p>
+                            <p>Në magazinë</p>
                         </div>
                         <div>
-                            <p>{{--{{$in_status[3]}}--}}</p>
+                            <p id="inventory">{{--{{$in_status[3]}}--}}</p>
                         </div>
                     </div>
 
@@ -201,10 +201,10 @@
                             <img class="d-icon" src="{{--{{asset('storage/images/icons/kthim-icon.png')}}--}}">
                         </div>
                         <div>
-                            <p>Kthim</p>
+                            <p>Mbërritur</p>
                         </div>
                         <div>
-                            <p>{{--{{$in_status[4]}}--}}</p>
+                            <p id="arrived">{{--{{$in_status[4]}}--}}</p>
                         </div>
                     </div>
 
@@ -213,10 +213,10 @@
                             <img class="d-icon" src="{{--{{asset('storage/images/icons/dorezuar-icon.png')}}--}}">
                         </div>
                         <div>
-                            <p>Dorëzuar</p>
+                            <p>Në kthim</p>
                         </div>
                         <div>
-                            <p>{{--{{$in_status[5]}}--}}</p>
+                            <p id="returning">{{--{{$in_status[5]}}--}}</p>
                         </div>
                     </div>
 
@@ -225,10 +225,10 @@
                             <img class="d-icon" src="{{--{{asset('storage/images/icons/kthim-ne-magazine-icon.png')}}--}}">
                         </div>
                         <div>
-                            <p>Kthim në magazinë</p>
+                            <p>E Kthyer</p>
                         </div>
                         <div>
-                            <p>{{--{{$in_status[6]}}--}}</p>
+                            <p id="returned">{{--{{$in_status[6]}}--}}</p>
                         </div>
                     </div>
 
@@ -237,20 +237,27 @@
                             <img class="d-icon" src="{{--{{asset('storage/images/icons/likujduar-icon.png')}}--}}">
                         </div>
                         <div>
-                            <p>Likuiduar</p>
+                            <p>E humbur</p>
                         </div>
                         <div>
-                            <p>{{--{{$in_status[7]}}--}}</p>
+                            <p id="lost">{{--{{$in_status[7]}}--}}</p>
                         </div>
                     </div>
 
-                    <div class="col col-list-f all-end">
-                        <p>Gjithsej &nbsp;&nbsp;   {{--{{$orders_total}}--}}</p>
-
+                    <div class="col col-list-f">
+                        <div>
+                            <img class="d-icon" src="{{--{{asset('storage/images/icons/likujduar-icon.png')}}--}}">
+                        </div>
+                        <div>
+                            <p>E fshirë</p>
+                        </div>
+                        <div>
+                            <p id="deleted">{{--{{$in_status[7]}}--}}</p>
+                        </div>
                     </div>
 
                 </div>
-                <div class="col-sm-3 rw-d" id="employee">
+                <div class="col-sm-3 rw-d" id="employee" style="height: max-content;">
                     <h3>Totali i punonjësve në pozicionet</h3>
 
                     <div class="col col-list-f">
@@ -261,7 +268,7 @@
                             <p>Administrator</p>
                         </div>
                         <div>
-                            <p>{{--{{$employees[0]}}--}}</p>
+                            <p id="admin">{{--{{$employees[0]}}--}}</p>
                         </div>
                     </div>
 
@@ -273,43 +280,7 @@
                             <p>Magazinier</p>
                         </div>
                         <div>
-                            <p>{{--{{$employees[1]}}--}}</p>
-                        </div>
-                    </div>
-
-                    <div class="col col-list-f">
-                        <div>
-                            <img class="d-icon" src="{{--{{asset('storage/images/icons/d-punonjes-icon.png')}}--}}">
-                        </div>
-                        <div>
-                            <p>Shef&nbsp;magazine</p>
-                        </div>
-                        <div>
-                            <p>{{--{{$employees[2]}}--}}</p>
-                        </div>
-                    </div>
-
-                    <div class="col col-list-f">
-                        <div>
-                            <img class="d-icon" src="{{--{{asset('storage/images/icons/d-punonjes-icon.png')}}--}}">
-                        </div>
-                        <div>
-                            <p>Operator</p>
-                        </div>
-                        <div>
-                            <p>{{--{{$employees[3]}}--}}</p>
-                        </div>
-                    </div>
-
-                    <div class="col col-list-f">
-                        <div>
-                            <img class="d-icon" src="{{--{{asset('storage/images/icons/d-punonjes-icon.png')}}--}}">
-                        </div>
-                        <div>
-                            <p>Ekonomist</p>
-                        </div>
-                        <div>
-                            <p>{{--{{$employees[4]}}--}}</p>
+                            <p id="warehouse">{{--{{$employees[1]}}--}}</p>
                         </div>
                     </div>
 
@@ -321,12 +292,8 @@
                             <p>Postier</p>
                         </div>
                         <div>
-                            <p>{{--{{$employees[5]}}--}}</p>
+                            <p id="postman">{{--{{$employees[5]}}--}}</p>
                         </div>
-                    </div>
-
-                    <div class="col col-list-f all-end">
-                        <p>Gjithsej &nbsp;&nbsp;   {{--{{$employees_total}}--}} </p>
                     </div>
 
                 </div>
@@ -341,7 +308,7 @@
                                 <p>Ekspres</p>
                             </div>
                             <div>
-                                <p>{{--{{$priority[0]}}--}}</p>
+                                <p id="express">{{--{{$priority[0]}}--}}</p>
                             </div>
                         </div>
 
@@ -353,7 +320,7 @@
                                 <p>Normal</p>
                             </div>
                             <div>
-                                <p>{{--{{$priority[1]}}--}}</p>
+                                <p id="normal">{{--{{$priority[1]}}--}}</p>
                             </div>
                         </div>
 
@@ -372,7 +339,7 @@
                                 <p>Letër</p>
                             </div>
                             <div>
-                                <p>{{--{{$type[0]}}--}}</p>
+                                <p id="letter">{{--{{$type[0]}}--}}</p>
                             </div>
                         </div>
 
@@ -384,7 +351,7 @@
                                 <p>Pako</p>
                             </div>
                             <div>
-                                <p>{{--{{$type[1]}}--}}</p>
+                                <p id="package">{{--{{$type[1]}}--}}</p>
                             </div>
                         </div>
 

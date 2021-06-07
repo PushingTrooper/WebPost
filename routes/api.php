@@ -42,3 +42,4 @@ Route::get('/getAllUsersReqPassChange', [ApiController::class, 'getAllUsersReqPa
 Route::post('/changePassword', [ApiController::class, 'changePassword']);
 Route::post('/denyPasswordChange', [ApiController::class, 'denyPasswordChange']);
 Route::post('/storeImage', [ApiController::class, 'storeImage']);
+Route::get('/getAdminMetrics', [ApiController::class, 'getAdminMetrics']);
